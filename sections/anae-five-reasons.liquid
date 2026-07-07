@@ -1,0 +1,115 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} .anae-five {
+    --anae-accent: #D4537E; --anae-accent-2: #E8915B; --anae-ink: #3A2A22;
+    --anae-cream: #FBF3E9; --anae-beige: #F0DCC4;
+    background: var(--anae-cream); color: var(--anae-ink);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .anae-five__wrap {
+    max-width: 1100px; margin: 0 auto; padding: 0 20px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start;
+  }
+  #shopify-section-{{ section.id }} .anae-five__eyebrow {
+    text-transform: uppercase; letter-spacing: .18em; font-size: 1.2rem; font-weight: 700; color: var(--anae-accent); margin: 0 0 10px;
+  }
+  #shopify-section-{{ section.id }} .anae-five__title {
+    font-family: var(--font-heading-family, 'Fraunces', Georgia, serif);
+    font-size: clamp(2.6rem, 4vw, 4.2rem); line-height: 1.08; margin: 0 0 18px;
+  }
+  #shopify-section-{{ section.id }} .anae-five__intro { font-size: 1.6rem; line-height: 1.6; opacity: .85; margin: 0 0 26px; }
+  #shopify-section-{{ section.id }} .anae-five__media {
+    aspect-ratio: 3/4; border-radius: 20px; overflow: hidden; background: var(--anae-beige); position: relative;
+  }
+  #shopify-section-{{ section.id }} .anae-five__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #shopify-section-{{ section.id }} .anae-imgph {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; letter-spacing: .08em; text-transform: uppercase; color: rgba(58,42,34,.4);
+    border: 2px dashed rgba(58,42,34,.18);
+  }
+  #shopify-section-{{ section.id }} .anae-five__list { list-style: none; margin: 0; padding: 0; counter-reset: reason; }
+  #shopify-section-{{ section.id }} .anae-five__item {
+    counter-increment: reason; display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid rgba(58,42,34,.12);
+  }
+  #shopify-section-{{ section.id }} .anae-five__item:first-child { border-top: 0; }
+  #shopify-section-{{ section.id }} .anae-five__badge {
+    flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(54deg, var(--anae-accent-2) 14%, var(--anae-accent) 85%);
+    color: #fff; font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: 1.9rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #shopify-section-{{ section.id }} .anae-five__badge::before { content: counter(reason); }
+  #shopify-section-{{ section.id }} .anae-five__item h3 {
+    font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: 1.9rem; margin: 2px 0 4px;
+  }
+  #shopify-section-{{ section.id }} .anae-five__item p { margin: 0; font-size: 1.45rem; line-height: 1.55; opacity: .9; }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .anae-five__wrap { grid-template-columns: 1fr; gap: 30px; }
+    #shopify-section-{{ section.id }} .anae-five__media { order: -1; aspect-ratio: 4/3; }
+  }
+{%- endstyle -%}
+
+<div class="anae-five">
+  <div class="anae-five__wrap">
+    <div class="anae-five__col">
+      {%- if section.settings.eyebrow != blank -%}<p class="anae-five__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.title != blank -%}<h2 class="anae-five__title">{{ section.settings.title }}</h2>{%- endif -%}
+      {%- if section.settings.intro != blank -%}<div class="anae-five__intro">{{ section.settings.intro }}</div>{%- endif -%}
+      <ul class="anae-five__list">
+        {%- for block in section.blocks -%}
+          <li class="anae-five__item" {{ block.shopify_attributes }}>
+            <span class="anae-five__badge"></span>
+            <div>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    <div class="anae-five__media">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" loading="lazy" width="800" height="1066">
+      {%- else -%}
+        <span class="anae-imgph">Image à venir</span>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Anaé · 5 raisons",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Le bon choix" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "5 raisons de passer à Anaé" },
+    { "type": "richtext", "id": "intro", "label": "Introduction", "default": "<p>Ce qui fait la différence entre Anaé et un énième complément posé au fond d'un placard.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge haut", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge bas", "default": 64 }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Raison",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre", "default": "Un geste de 10 secondes" },
+        { "type": "textarea", "id": "text", "label": "Texte", "default": "Un stick, un verre d'eau. Aucune gélule à avaler, aucune préparation." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anaé · 5 raisons",
+      "blocks": [
+        { "type": "reason", "settings": { "title": "Une énergie sans le crash", "text": "Le duo yerba maté + berbérine te porte sans le pic nerveux ni la chute du café de l'après-midi." } },
+        { "type": "reason", "settings": { "title": "Un geste de 10 secondes", "text": "Un stick, un verre d'eau, et c'est réglé. Aucune gélule, aucune contrainte, aucune excuse." } },
+        { "type": "reason", "settings": { "title": "Une saveur qu'on attend", "text": "Fraise fraîche et gourmande, zéro arrière-goût poudreux. Le seul complément dont tu as vraiment envie." } },
+        { "type": "reason", "settings": { "title": "Une formule courte et lisible", "text": "Des actifs choisis, pas une liste à rallonge. Tu sais exactement ce que tu bois." } },
+        { "type": "reason", "settings": { "title": "Pensé pour ta vie active", "text": "Format nomade qui se glisse dans un sac. À la maison, au bureau, en déplacement." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

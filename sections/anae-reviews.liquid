@@ -1,0 +1,128 @@
+{%- liquid
+  assign star_full = '<svg viewBox="0 0 576 512" aria-hidden="true"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>'
+-%}
+{%- style -%}
+  #shopify-section-{{ section.id }} .anae-rev {
+    --anae-accent: #D4537E; --anae-accent-2: #E8915B; --anae-ink: #3A2A22;
+    --anae-cream: #FBF3E9; --anae-beige: #F0DCC4; --anae-star: #D4537E;
+    background: var(--anae-beige); color: var(--anae-ink);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .anae-rev__anchor { position: relative; top: -90px; display: block; height: 0; visibility: hidden; }
+  #shopify-section-{{ section.id }} .anae-rev__wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+  #shopify-section-{{ section.id }} .anae-rev__head { text-align: center; margin: 0 0 42px; }
+  #shopify-section-{{ section.id }} .anae-rev__eyebrow {
+    text-transform: uppercase; letter-spacing: .18em; font-size: 1.2rem; font-weight: 700; color: var(--anae-accent); margin: 0 0 10px;
+  }
+  #shopify-section-{{ section.id }} .anae-rev__title {
+    font-family: var(--font-heading-family, 'Fraunces', Georgia, serif);
+    font-size: clamp(2.6rem, 4vw, 4rem); line-height: 1.1; margin: 0 0 18px;
+  }
+  #shopify-section-{{ section.id }} .anae-rev__agg { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  #shopify-section-{{ section.id }} .anae-rev__score { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: 2.4rem; font-weight: 700; }
+  #shopify-section-{{ section.id }} .anae-stars { display: inline-flex; gap: 3px; }
+  #shopify-section-{{ section.id }} .anae-stars svg { width: 20px; height: 20px; fill: var(--anae-star); }
+  #shopify-section-{{ section.id }} .anae-rev__count { font-size: 1.5rem; opacity: .8; }
+  #shopify-section-{{ section.id }} .anae-rev__grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px;
+  }
+  #shopify-section-{{ section.id }} .anae-rev__card {
+    background: #fff; border-radius: 18px; padding: 26px 24px; box-shadow: 0 10px 30px rgba(58,42,34,.07);
+    display: flex; flex-direction: column;
+  }
+  #shopify-section-{{ section.id }} .anae-rev__card .anae-stars { margin: 0 0 12px; }
+  #shopify-section-{{ section.id }} .anae-rev__text { font-size: 1.55rem; line-height: 1.6; margin: 0 0 20px; }
+  #shopify-section-{{ section.id }} .anae-rev__person { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+  #shopify-section-{{ section.id }} .anae-rev__avatar {
+    width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex: 0 0 auto;
+    background: linear-gradient(54deg, var(--anae-accent-2) 14%, var(--anae-accent) 85%);
+    display: flex; align-items: center; justify-content: center; color: #fff;
+    font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: 1.8rem;
+  }
+  #shopify-section-{{ section.id }} .anae-rev__avatar img { width: 100%; height: 100%; object-fit: cover; }
+  #shopify-section-{{ section.id }} .anae-rev__name { font-weight: 700; font-size: 1.45rem; }
+  #shopify-section-{{ section.id }} .anae-rev__meta { font-size: 1.25rem; opacity: .65; display: flex; align-items: center; gap: 6px; }
+  #shopify-section-{{ section.id }} .anae-rev__verified { display: inline-flex; align-items: center; gap: 4px; color: #2e9e6b; font-weight: 700; }
+  #shopify-section-{{ section.id }} .anae-rev__verified svg { width: 13px; height: 13px; fill: #2e9e6b; }
+{%- endstyle -%}
+
+<div class="anae-rev">
+  <span id="avis" class="anae-rev__anchor"></span>
+  <div class="anae-rev__wrap">
+    <div class="anae-rev__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="anae-rev__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.title != blank -%}<h2 class="anae-rev__title">{{ section.settings.title }}</h2>{%- endif -%}
+      <div class="anae-rev__agg">
+        <span class="anae-rev__score">{{ section.settings.avg_rating }}</span>
+        <span class="anae-stars">{{ star_full }}{{ star_full }}{{ star_full }}{{ star_full }}{{ star_full }}</span>
+        <span class="anae-rev__count">· {{ section.settings.review_count }} avis vérifiés</span>
+      </div>
+    </div>
+    <div class="anae-rev__grid">
+      {%- for block in section.blocks -%}
+        <div class="anae-rev__card" {{ block.shopify_attributes }}>
+          <span class="anae-stars">{%- for i in (1..5) -%}{{ star_full }}{%- endfor -%}</span>
+          <p class="anae-rev__text">{{ block.settings.text }}</p>
+          <div class="anae-rev__person">
+            <span class="anae-rev__avatar">
+              {%- if block.settings.avatar != blank -%}
+                <img src="{{ block.settings.avatar | image_url: width: 90 }}" alt="{{ block.settings.name | escape }}" loading="lazy" width="90" height="90">
+              {%- else -%}
+                {{ block.settings.name | slice: 0 | upcase }}
+              {%- endif -%}
+            </span>
+            <div>
+              <div class="anae-rev__name">{{ block.settings.name }}</div>
+              <div class="anae-rev__meta">
+                {%- if block.settings.location != blank -%}<span>{{ block.settings.location }}</span>{%- endif -%}
+                {%- if block.settings.verified -%}<span class="anae-rev__verified"><svg viewBox="0 0 122.88 116.87" aria-hidden="true"><polygon points="61.37 8.24 80.43 0 90.88 17.79 111.15 22.32 109.15 42.85 122.88 58.43 109.2 73.87 111.15 94.55 91 99 80.43 116.87 61.51 108.62 42.45 116.87 32 99.08 11.73 94.55 13.73 74.01 0 58.43 13.68 42.99 11.73 22.32 31.88 17.87 42.45 0 61.37 8.24"/></svg>Achat vérifié</span>{%- endif -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Anaé · Avis clients",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Avis clients" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Elles ont adopté Anaé" },
+    { "type": "text", "id": "avg_rating", "label": "Note moyenne (affichage)", "default": "4,9/5" },
+    { "type": "text", "id": "review_count", "label": "Nombre d'avis (affichage)", "default": "127" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge haut", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge bas", "default": 64 }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Avis",
+      "settings": [
+        { "type": "image_picker", "id": "avatar", "label": "Photo (optionnel)" },
+        { "type": "text", "id": "name", "label": "Nom", "default": "Camille D." },
+        { "type": "text", "id": "location", "label": "Ville / date", "default": "Lyon" },
+        { "type": "checkbox", "id": "verified", "label": "Achat vérifié", "default": true },
+        { "type": "textarea", "id": "text", "label": "Avis", "default": "Un vrai coup de cœur." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anaé · Avis clients",
+      "blocks": [
+        { "type": "review", "settings": { "name": "Camille D.", "location": "Lyon", "verified": true, "text": "J'ai remplacé mon 2e café par un stick Anaé et je ne reviens pas en arrière. Le coup de barre de 16h a disparu, et le goût fraise est top." } },
+        { "type": "review", "settings": { "name": "Sarah L.", "location": "Montréal", "verified": true, "text": "Enfin un complément que je pense à prendre parce qu'il est bon ! Énergie stable toute la matinée, sans être surexcitée comme avec le café." } },
+        { "type": "review", "settings": { "name": "Inès B.", "location": "Bordeaux", "verified": true, "text": "Le format stick est parfait pour mes journées de dingue. Je le glisse dans mon sac et hop. Livraison rapide en plus." } },
+        { "type": "review", "settings": { "name": "Marie T.", "location": "Paris", "verified": true, "text": "Sceptique au début, convaincue après 3 semaines. Je me sens plus « au taquet » sans la nervosité. Je recommande les yeux fermés." } },
+        { "type": "review", "settings": { "name": "Léa M.", "location": "Québec", "verified": true, "text": "La saveur fraise est vraiment naturelle, pas chimique. Le geste du matin est devenu mon petit rituel plaisir." } },
+        { "type": "review", "settings": { "name": "Julie R.", "location": "Nantes", "verified": true, "text": "Ça faisait longtemps que je cherchais une alternative au café. Anaé coche toutes les cases : simple, bon, efficace." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,657 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "text_size": "h2",
+            "title_alignment": "left",
+            "uppercase_title": false,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "rating": {
+          "type": "rating_stars",
+          "settings": {
+            "rating": 4.9,
+            "star_color": "#D4537E",
+            "bg_stars_style": "full",
+            "bg_star_color": "#E7D2BE",
+            "label": "(127 avis)",
+            "size": 16,
+            "alignment": "flex-start",
+            "scroll_id": "#avis",
+            "margin_top": 0,
+            "margin_bottom": 9
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "layout": "price_first",
+            "price_color": "accent-1",
+            "compare_price_color": "text",
+            "displayed_badge": "sale",
+            "icon_scale": 140,
+            "custom_badge_text": "[icon_1] SPECIAL OFFER",
+            "icon_1": "redeem",
+            "filled_icon_1": false,
+            "icon_2": "check_circle",
+            "filled_icon_2": false,
+            "margin_top": 9,
+            "margin_bottom": 15
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "skip_cart": false,
+            "uppercase_text": true,
+            "icon_scale": 120,
+            "icon_spacing": 10,
+            "display_price": false,
+            "enable_custom_color": false,
+            "custom_color": "#53af01",
+            "enable_secondary_btn": false,
+            "secondary_btn_label": "Buy It Now",
+            "secondary_btn_enable_custom_color": false,
+            "secondary_btn_custom_color": "#dd1d1d",
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
+        },
+        "anae_buybox": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "\n<div style='margin-top:4px;'>\n  <div style='display:flex;gap:12px;flex-wrap:wrap;margin:4px 0 18px;'>\n    <div style='flex:1 1 140px;text-align:center;'>\n      <div style='width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:linear-gradient(54deg,#E8915B 14%,#D4537E 85%);display:flex;align-items:center;justify-content:center;'>\n        <svg viewBox='0 0 24 24' width='22' height='22' fill='#fff' aria-hidden='true'><path d='M13 2L4.5 13H11l-1 9 8.5-11H12l1-9z'/></svg>\n      </div>\n      <div style='font-weight:700;font-size:1.4rem;line-height:1.25;'>Energie sans crash</div>\n      <div style='font-size:1.2rem;opacity:.72;line-height:1.35;'>Yerba mate + berberine</div>\n    </div>\n    <div style='flex:1 1 140px;text-align:center;'>\n      <div style='width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:linear-gradient(54deg,#E8915B 14%,#D4537E 85%);display:flex;align-items:center;justify-content:center;'>\n        <svg viewBox='0 0 24 24' width='22' height='22' fill='#fff' aria-hidden='true'><path d='M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 10.6l-4-2.3V6h2v3.1l3 1.7z'/></svg>\n      </div>\n      <div style='font-weight:700;font-size:1.4rem;line-height:1.25;'>Geste de 10 sec</div>\n      <div style='font-size:1.2rem;opacity:.72;line-height:1.35;'>Un stick, un verre d eau</div>\n    </div>\n    <div style='flex:1 1 140px;text-align:center;'>\n      <div style='width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:linear-gradient(54deg,#E8915B 14%,#D4537E 85%);display:flex;align-items:center;justify-content:center;'>\n        <svg viewBox='0 0 24 24' width='22' height='22' fill='#fff' aria-hidden='true'><path d='M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18z'/></svg>\n      </div>\n      <div style='font-weight:700;font-size:1.4rem;line-height:1.25;'>Saveur fraise</div>\n      <div style='font-size:1.2rem;opacity:.72;line-height:1.35;'>Zero arriere-gout poudreux</div>\n    </div>\n  </div>\n\n  <div style='border-top:1px solid rgba(58,42,34,.14);padding-top:14px;'>\n    <div style='display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;'>\n      {%- for type in shop.enabled_payment_types -%}\n        {{ type | payment_type_svg_tag: class: 'payment-icon' }}\n      {%- endfor -%}\n    </div>\n  </div>\n\n  <div style='margin-top:16px;background:#ffffff;border:1px solid rgba(212,83,126,.25);border-radius:14px;padding:15px 18px;display:flex;gap:14px;align-items:center;'>\n    <svg viewBox='0 0 24 24' width='34' height='34' fill='#D4537E' aria-hidden='true' style='flex:0 0 auto;'><path d='M12 1l9 4v6c0 5.25-3.6 9.75-9 11-5.4-1.25-9-5.75-9-11V5l9-4zm-1.2 14.4l6-6-1.4-1.4-4.6 4.6-2-2L7.4 12l3.4 3.4z'/></svg>\n    <div>\n      <div style='font-family:var(--font-heading-family, Fraunces, Georgia, serif);font-weight:700;font-size:1.75rem;line-height:1.2;'>Satisfait ou rembourse &mdash; 60 jours</div>\n      <div style='font-size:1.25rem;opacity:.8;line-height:1.4;margin-top:2px;'>Essaie Anae sans risque. Pas convaincu&nbsp;? On te rembourse, tout simplement.</div>\n    </div>\n  </div>\n\n  <div style='margin-top:14px;display:flex;flex-direction:column;gap:9px;'>\n    <div style='display:flex;align-items:center;gap:10px;font-size:1.35rem;'><svg viewBox='0 0 24 24' width='18' height='18' fill='#2e9e6b' aria-hidden='true' style='flex:0 0 auto;'><path d='M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z'/></svg>Livraison en France &amp; au Quebec</div>\n    <div style='display:flex;align-items:center;gap:10px;font-size:1.35rem;'><svg viewBox='0 0 24 24' width='18' height='18' fill='#2e9e6b' aria-hidden='true' style='flex:0 0 auto;'><path d='M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z'/></svg>Paiement 100% securise</div>\n    <div style='display:flex;align-items:center;gap:10px;font-size:1.35rem;'><svg viewBox='0 0 24 24' width='18' height='18' fill='#2e9e6b' aria-hidden='true' style='flex:0 0 auto;'><path d='M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z'/></svg>Satisfait ou rembourse sous 60 jours</div>\n  </div>\n</div>\n"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
+        },
+        "tab_compo": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Composition & ingrédients",
+            "heading_size": "medium",
+            "icon": "check_box",
+            "filled_icon": false,
+            "collapse_icon": "carret",
+            "display_top_border": true,
+            "open": false,
+            "content": "<p><strong>Actifs principaux&nbsp;:</strong> berb&eacute;rine (extrait v&eacute;g&eacute;tal), yerba mat&eacute; (source de caf&eacute;ine naturelle), vitamines du groupe B.</p><p><strong>Ar&ocirc;me&nbsp;:</strong> fraise naturelle.</p><p><em>Compl&eacute;ment alimentaire. Ne se substitue pas &agrave; une alimentation vari&eacute;e et &agrave; un mode de vie sain.</em></p>",
+            "page": "",
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "tab_usage": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Conseils d'utilisation",
+            "heading_size": "medium",
+            "icon": "check_box",
+            "filled_icon": false,
+            "collapse_icon": "carret",
+            "display_top_border": true,
+            "open": false,
+            "content": "<p>1 stick par jour, vers&eacute; dans un grand verre d&rsquo;eau fra&icirc;che. Id&eacute;alement le matin ou en d&eacute;but d&rsquo;apr&egrave;s-midi.</p><p>M&eacute;lange 10 secondes et bois imm&eacute;diatement.</p><p>D&eacute;conseill&eacute; aux femmes enceintes ou allaitantes et aux enfants. Ne pas d&eacute;passer la dose journali&egrave;re recommand&eacute;e.</p>",
+            "page": "",
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "tab_ship": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Livraison & retours",
+            "heading_size": "medium",
+            "icon": "check_box",
+            "filled_icon": false,
+            "collapse_icon": "carret",
+            "display_top_border": true,
+            "open": false,
+            "content": "<p><strong>Livraison</strong> en France m&eacute;tropolitaine et au Qu&eacute;bec. Exp&eacute;dition sous 24&nbsp;&agrave;&nbsp;48h.</p><p>Suivi de commande envoy&eacute; par e-mail d&egrave;s l&rsquo;exp&eacute;dition.</p><p><strong>Retours</strong> accept&eacute;s sous 60 jours (voir garantie).</p>",
+            "page": "",
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "tab_guar": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Garantie 60 jours",
+            "heading_size": "medium",
+            "icon": "check_box",
+            "filled_icon": false,
+            "collapse_icon": "carret",
+            "display_top_border": true,
+            "open": false,
+            "content": "<p><strong>Satisfait ou rembours&eacute; pendant 60 jours.</strong></p><p>Essaie Ana&eacute; pendant 60 jours. Si tu n&rsquo;es pas convaincu, contacte-nous et nous te remboursons &mdash; m&ecirc;me si le stick est entam&eacute;. Sans question pi&egrave;ge.</p>",
+            "page": "",
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "rating",
+        "price",
+        "buy_buttons",
+        "anae_buybox",
+        "description",
+        "tab_compo",
+        "tab_usage",
+        "tab_ship",
+        "tab_guar"
+      ],
+      "custom_css": [],
+      "settings": {
+        "display_id": false,
+        "enable_sticky_info": true,
+        "display_variant_image_first": false,
+        "disable_prepend": true,
+        "hide_variants": false,
+        "variant_image_filtering": "none",
+        "image_zoom": "none",
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": false,
+        "dots_color_scheme": "inverse",
+        "video_player": "play_btn",
+        "enable_video_looping": false,
+        "autoplay_videos_pause_btn": false,
+        "video_sound_btn": false,
+        "video_timeline": false,
+        "play_btn_color_scheme": "accent-1",
+        "sound_btn_color_scheme": "inverse",
+        "timeline_color": "accent-1",
+        "media_size": "medium",
+        "media_position": "left",
+        "gallery_layout": "thumbnail_slider",
+        "desktop_thumbnails_count": 5,
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "desktop_arrows_position": "hidden",
+        "mobile_media_corner_radius": 0,
+        "mobile_spacing_pixels": 0,
+        "mobile_arrows_position": "sides",
+        "mobile_pagination": "dots_overlay",
+        "mobile_thumbnails": "hide",
+        "mobile_thumbnails_count": 5,
+        "mobile_scroll_padding_percentage": 0,
+        "mobile_scroll_padding_pixels": 14,
+        "enable_mobile_outher_spacing": false,
+        "mobile_slides_container_width": 100,
+        "mobile_slides_inner_width": 100,
+        "trust_badge_position": "top-right",
+        "trust_badge_size": "medium",
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 16,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36
+      }
+    },
+    "anae_ingredients": {
+      "type": "anae-ingredients",
+      "settings": {
+        "eyebrow": "La formule",
+        "title": "Une formule courte. Des actifs qui comptent.",
+        "intro": "<p>Pas de liste à rallonge : chaque ingrédient d'Anaé a une raison d'être. Voici ce qui compose ton stick.</p>",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "b1": {
+          "type": "ingredient",
+          "settings": {
+            "tag": "Actif clé",
+            "name": "Berbérine",
+            "text": "L'actif signature d'Anaé, extrait de plantes. Il structure la formule et soutient ton énergie de fond."
+          }
+        },
+        "b2": {
+          "type": "ingredient",
+          "settings": {
+            "tag": "Énergie",
+            "name": "Yerba Maté",
+            "text": "La plante des gauchos d'Amérique du Sud, riche en caféine naturelle, pour un boost franc sans la nervosité du café."
+          }
+        },
+        "b3": {
+          "type": "ingredient",
+          "settings": {
+            "tag": "Vitalité",
+            "name": "Vitamines B",
+            "text": "Un coup de pouce au métabolisme énergétique, pour transformer ce que tu manges en énergie utilisable."
+          }
+        },
+        "b4": {
+          "type": "ingredient",
+          "settings": {
+            "tag": "Plaisir",
+            "name": "Arôme fraise naturel",
+            "text": "Une saveur fraîche et gourmande qui donne envie de recommencer. Zéro arrière-goût poudreux."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "anae_how": {
+      "type": "anae-how-it-works",
+      "settings": {
+        "eyebrow": "Le rituel",
+        "title": "Ton énergie en 3 gestes",
+        "note": "<p>Un geste de 10 secondes, le matin ou en début d'aprèm. Aucune préparation, aucune contrainte &mdash; juste toi et ton verre.</p>",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Verse",
+            "text": "Un stick Anaé dans un grand verre d'eau fraîche, où que tu sois."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Mélange",
+            "text": "10 secondes suffisent. La poudre se dissout, la couleur fraise apparaît."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Ressens",
+            "text": "Une énergie nette qui monte en douceur &mdash; sans pic, sans chute, sans nervosité."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "8beb6911-28c6-482c-976a-e5421ad3e8df": {
+      "type": "custom-columns",
+      "blocks": {
+        "h1": {
+          "type": "heading",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "heading": "Nos bénéfices clés",
+            "title_highlight_color": "#d4537e",
+            "heading_size": "h2",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        },
+        "i1": {
+          "type": "icon_with_text",
+          "settings": {
+            "column": "col_2",
+            "visibility": "always-display",
+            "icon": "check_circle",
+            "filled_icon": false,
+            "image": "shopify://shop_images/bolt_24dp_D4537E__FILL0_wght400_GRAD0_opsz24.svg",
+            "icon_size": "m",
+            "icon_position": "next-to-title",
+            "icon_color": "accent-1",
+            "icon_heading_size": "h4",
+            "icon_text_alignment": "left",
+            "title": "Énergie stable",
+            "text": "<p>Un coup de boost franc, sans la nervosité ni la chute du café de 16h.</p>",
+            "margin_top": 20,
+            "margin_bottom": 30
+          }
+        },
+        "i2": {
+          "type": "icon_with_text",
+          "settings": {
+            "column": "col_2",
+            "visibility": "always-display",
+            "icon": "check_circle",
+            "filled_icon": false,
+            "image": "shopify://shop_images/timer_10_alt_1_24dp_D4537E__FILL0_wght400_GRAD0_opsz24.svg",
+            "icon_size": "m",
+            "icon_position": "next-to-title",
+            "icon_color": "accent-1",
+            "icon_heading_size": "h4",
+            "icon_text_alignment": "left",
+            "title": "Geste de 10 secondes",
+            "text": "<p>Un stick, un verre d'eau, et tu repars. Aucune contrainte, aucune préparation.</p>",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        },
+        "im1": {
+          "type": "image",
+          "settings": {
+            "column": "col_3",
+            "visibility": "always-display",
+            "image": "shopify://shop_images/46165444-A16A-4D49-9F0A-4C7FC0D176B9.jpg",
+            "width": 100,
+            "alignment": "center",
+            "mobile_alignment": "center",
+            "border_radius": 0,
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        },
+        "i3": {
+          "type": "icon_with_text",
+          "settings": {
+            "column": "col_4",
+            "visibility": "always-display",
+            "icon": "check_circle",
+            "filled_icon": false,
+            "image": "shopify://shop_images/favorite_24dp_D4537E__FILL0_wght400_GRAD0_opsz24.svg",
+            "icon_size": "m",
+            "icon_position": "next-to-title",
+            "icon_color": "accent-1",
+            "icon_heading_size": "h4",
+            "icon_text_alignment": "left",
+            "title": "Saveur fraise",
+            "text": "<p>Pas de texture poudreuse ni d'arrière-goût. Juste une boisson fraîche qu'on attend.</p>",
+            "margin_top": 20,
+            "margin_bottom": 30
+          }
+        },
+        "i4": {
+          "type": "icon_with_text",
+          "settings": {
+            "column": "col_4",
+            "visibility": "always-display",
+            "icon": "check_circle",
+            "filled_icon": false,
+            "image": "shopify://shop_images/event_repeat_24dp_D4537E__FILL0_wght400_GRAD0_opsz24.svg",
+            "icon_size": "m",
+            "icon_position": "next-to-title",
+            "icon_color": "accent-1",
+            "icon_heading_size": "h4",
+            "icon_text_alignment": "left",
+            "title": "Pensé pour les actifs",
+            "text": "<p>Format nomade qui se glisse dans un sac. Pour celles et ceux qui n'ont pas une heure à perdre.</p>",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "h1",
+        "i1",
+        "i2",
+        "im1",
+        "i3",
+        "i4"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "color_scheme": "background-1",
+        "columns_count": 4,
+        "column_gap_desktop": 40,
+        "row_gap_desktop": 40,
+        "desktop_vertical_alignment": "center",
+        "column_gap_mobile": 20,
+        "row_gap_mobile": 30,
+        "mobile_vertical_alignment": "flex-start",
+        "col_1_desktop_width": 12,
+        "col_1_mobile_width": 4,
+        "col_1_visibility": "always-display",
+        "col_2_desktop_width": 4,
+        "col_2_mobile_width": 4,
+        "col_2_visibility": "always-display",
+        "col_3_desktop_width": 4,
+        "col_3_mobile_width": 4,
+        "col_3_visibility": "always-display",
+        "col_4_desktop_width": 4,
+        "col_4_mobile_width": 4,
+        "col_4_visibility": "always-display",
+        "col_5_desktop_width": 3,
+        "col_5_mobile_width": 4,
+        "col_5_visibility": "always-display",
+        "col_6_desktop_width": 3,
+        "col_6_mobile_width": 4,
+        "col_6_visibility": "always-display",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "anae_benefits": {
+      "type": "anae-benefits",
+      "settings": {
+        "eyebrow": "Pourquoi ça marche",
+        "title": "Des bénéfices concrets, pensés autour de tes actifs",
+        "intro": "<p>Chaque effet d'Anaé est rattaché à un ingrédient réel de la formule. Pas de promesse en l'air.</p>",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Énergie nette",
+            "text": "La caféine naturelle du yerba maté te réveille en douceur, sans le pic ni la chute brutale du café.",
+            "source": "Yerba Maté"
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Métabolisme soutenu",
+            "text": "La berbérine, actif végétal signature de la formule, accompagne ton organisme au quotidien.",
+            "source": "Berbérine"
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Moins de coups de mou",
+            "text": "Les vitamines B participent à un métabolisme énergétique normal et à la réduction de la fatigue.",
+            "source": "Vitamines B"
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "title": "Un geste qu'on tient",
+            "text": "Format stick, saveur fraise : le rituel est si simple et si bon que tu ne l'oublies pas.",
+            "source": "Format & goût"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "anae_five": {
+      "type": "anae-five-reasons",
+      "settings": {
+        "eyebrow": "Le bon choix",
+        "title": "5 raisons de passer à Anaé",
+        "intro": "<p>Ce qui fait la différence entre Anaé et un énième complément posé au fond d'un placard.</p>",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "r1": {
+          "type": "reason",
+          "settings": {
+            "title": "Une énergie sans le crash",
+            "text": "Le duo yerba maté + berbérine te porte sans le pic nerveux ni la chute du café de l'après-midi."
+          }
+        },
+        "r2": {
+          "type": "reason",
+          "settings": {
+            "title": "Un geste de 10 secondes",
+            "text": "Un stick, un verre d'eau, et c'est réglé. Aucune gélule, aucune contrainte, aucune excuse."
+          }
+        },
+        "r3": {
+          "type": "reason",
+          "settings": {
+            "title": "Une saveur qu'on attend",
+            "text": "Fraise fraîche et gourmande, zéro arrière-goût poudreux. Le seul complément dont tu as vraiment envie."
+          }
+        },
+        "r4": {
+          "type": "reason",
+          "settings": {
+            "title": "Une formule courte et lisible",
+            "text": "Des actifs choisis, pas une liste à rallonge. Tu sais exactement ce que tu bois."
+          }
+        },
+        "r5": {
+          "type": "reason",
+          "settings": {
+            "title": "Pensé pour ta vie active",
+            "text": "Format nomade qui se glisse dans un sac. À la maison, au bureau, en déplacement."
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ]
+    },
+    "anae_reviews": {
+      "type": "anae-reviews",
+      "settings": {
+        "eyebrow": "Avis clients",
+        "title": "Elles ont adopté Anaé",
+        "avg_rating": "4,9/5",
+        "review_count": "127",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "a1": {
+          "type": "review",
+          "settings": {
+            "name": "Camille D.",
+            "location": "Lyon",
+            "verified": true,
+            "text": "J'ai remplacé mon 2e café par un stick Anaé et je ne reviens pas en arrière. Le coup de barre de 16h a disparu, et le goût fraise est top."
+          }
+        },
+        "a2": {
+          "type": "review",
+          "settings": {
+            "name": "Sarah L.",
+            "location": "Montréal",
+            "verified": true,
+            "text": "Enfin un complément que je pense à prendre parce qu'il est bon ! Énergie stable toute la matinée, sans être surexcitée comme avec le café."
+          }
+        },
+        "a3": {
+          "type": "review",
+          "settings": {
+            "name": "Inès B.",
+            "location": "Bordeaux",
+            "verified": true,
+            "text": "Le format stick est parfait pour mes journées de dingue. Je le glisse dans mon sac et hop. Livraison rapide en plus."
+          }
+        },
+        "a4": {
+          "type": "review",
+          "settings": {
+            "name": "Marie T.",
+            "location": "Paris",
+            "verified": true,
+            "text": "Sceptique au début, convaincue après 3 semaines. Je me sens plus au taquet sans la nervosité. Je recommande les yeux fermés."
+          }
+        },
+        "a5": {
+          "type": "review",
+          "settings": {
+            "name": "Léa M.",
+            "location": "Québec",
+            "verified": true,
+            "text": "La saveur fraise est vraiment naturelle, pas chimique. Le geste du matin est devenu mon petit rituel plaisir."
+          }
+        },
+        "a6": {
+          "type": "review",
+          "settings": {
+            "name": "Julie R.",
+            "location": "Nantes",
+            "verified": true,
+            "text": "Ça faisait longtemps que je cherchais une alternative au café. Anaé coche toutes les cases : simple, bon, efficace."
+          }
+        }
+      },
+      "block_order": [
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5",
+        "a6"
+      ]
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "title": "You may also like",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "main",
+    "anae_ingredients",
+    "anae_how",
+    "8beb6911-28c6-482c-976a-e5421ad3e8df",
+    "anae_benefits",
+    "anae_five",
+    "anae_reviews",
+    "related-products"
+  ]
+}
