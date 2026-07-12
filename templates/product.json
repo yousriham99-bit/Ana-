@@ -28,6 +28,12 @@
             "margin_bottom": 9
           }
         },
+        "anae_benefits_top": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "\n<div style='display:flex;gap:12px;flex-wrap:wrap;margin:2px 0 6px;'>\n  <div style='flex:1 1 140px;text-align:center;'>\n    <div style='width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:linear-gradient(54deg,#E8915B 14%,#D4537E 85%);display:flex;align-items:center;justify-content:center;'>\n      <svg viewBox='0 0 24 24' width='22' height='22' fill='#fff' aria-hidden='true'><path d='M13 2L4.5 13H11l-1 9 8.5-11H12l1-9z'/></svg>\n    </div>\n    <div style='font-weight:700;font-size:1.4rem;line-height:1.25;'>Energie sans crash</div>\n    <div style='font-size:1.2rem;opacity:.72;line-height:1.35;'>Yerba mate + berberine</div>\n  </div>\n  <div style='flex:1 1 140px;text-align:center;'>\n    <div style='width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:linear-gradient(54deg,#E8915B 14%,#D4537E 85%);display:flex;align-items:center;justify-content:center;'>\n      <svg viewBox='0 0 24 24' width='22' height='22' fill='#fff' aria-hidden='true'><path d='M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 10.6l-4-2.3V6h2v3.1l3 1.7z'/></svg>\n    </div>\n    <div style='font-weight:700;font-size:1.4rem;line-height:1.25;'>Geste de 10 sec</div>\n    <div style='font-size:1.2rem;opacity:.72;line-height:1.35;'>Un stick, un verre d eau</div>\n  </div>\n  <div style='flex:1 1 140px;text-align:center;'>\n    <div style='width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:linear-gradient(54deg,#E8915B 14%,#D4537E 85%);display:flex;align-items:center;justify-content:center;'>\n      <svg viewBox='0 0 24 24' width='22' height='22' fill='#fff' aria-hidden='true'><path d='M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18z'/></svg>\n    </div>\n    <div style='font-weight:700;font-size:1.4rem;line-height:1.25;'>Saveur fraise</div>\n    <div style='font-size:1.2rem;opacity:.72;line-height:1.35;'>Zero arriere-gout poudreux</div>\n  </div>\n</div>\n"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -67,7 +73,7 @@
         "anae_buybox": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "\n<div style='margin-top:4px;'>\n  <div style='display:flex;gap:12px;flex-wrap:wrap;margin:4px 0 18px;'>\n    <div style='flex:1 1 140px;text-align:center;'>\n      <div style='width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:linear-gradient(54deg,#E8915B 14%,#D4537E 85%);display:flex;align-items:center;justify-content:center;'>\n        <svg viewBox='0 0 24 24' width='22' height='22' fill='#fff' aria-hidden='true'><path d='M13 2L4.5 13H11l-1 9 8.5-11H12l1-9z'/></svg>\n      </div>\n      <div style='font-weight:700;font-size:1.4rem;line-height:1.25;'>Energie sans crash</div>\n      <div style='font-size:1.2rem;opacity:.72;line-height:1.35;'>Yerba mate + berberine</div>\n    </div>\n    <div style='flex:1 1 140px;text-align:center;'>\n      <div style='width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:linear-gradient(54deg,#E8915B 14%,#D4537E 85%);display:flex;align-items:center;justify-content:center;'>\n        <svg viewBox='0 0 24 24' width='22' height='22' fill='#fff' aria-hidden='true'><path d='M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 10.6l-4-2.3V6h2v3.1l3 1.7z'/></svg>\n      </div>\n      <div style='font-weight:700;font-size:1.4rem;line-height:1.25;'>Geste de 10 sec</div>\n      <div style='font-size:1.2rem;opacity:.72;line-height:1.35;'>Un stick, un verre d eau</div>\n    </div>\n    <div style='flex:1 1 140px;text-align:center;'>\n      <div style='width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:linear-gradient(54deg,#E8915B 14%,#D4537E 85%);display:flex;align-items:center;justify-content:center;'>\n        <svg viewBox='0 0 24 24' width='22' height='22' fill='#fff' aria-hidden='true'><path d='M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18z'/></svg>\n      </div>\n      <div style='font-weight:700;font-size:1.4rem;line-height:1.25;'>Saveur fraise</div>\n      <div style='font-size:1.2rem;opacity:.72;line-height:1.35;'>Zero arriere-gout poudreux</div>\n    </div>\n  </div>\n\n  <div style='border-top:1px solid rgba(58,42,34,.14);padding-top:14px;'>\n    <div style='display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;'>\n      {%- for type in shop.enabled_payment_types -%}\n        {{ type | payment_type_svg_tag: class: 'payment-icon' }}\n      {%- endfor -%}\n    </div>\n  </div>\n\n  <div style='margin-top:16px;background:#ffffff;border:1px solid rgba(212,83,126,.25);border-radius:14px;padding:15px 18px;display:flex;gap:14px;align-items:center;'>\n    <svg viewBox='0 0 24 24' width='34' height='34' fill='#D4537E' aria-hidden='true' style='flex:0 0 auto;'><path d='M12 1l9 4v6c0 5.25-3.6 9.75-9 11-5.4-1.25-9-5.75-9-11V5l9-4zm-1.2 14.4l6-6-1.4-1.4-4.6 4.6-2-2L7.4 12l3.4 3.4z'/></svg>\n    <div>\n      <div style='font-family:var(--font-heading-family, Fraunces, Georgia, serif);font-weight:700;font-size:1.75rem;line-height:1.2;'>Satisfait ou rembourse &mdash; 60 jours</div>\n      <div style='font-size:1.25rem;opacity:.8;line-height:1.4;margin-top:2px;'>Essaie Anae sans risque. Pas convaincu&nbsp;? On te rembourse, tout simplement.</div>\n    </div>\n  </div>\n\n  <div style='margin-top:14px;display:flex;flex-direction:column;gap:9px;'>\n    <div style='display:flex;align-items:center;gap:10px;font-size:1.35rem;'><svg viewBox='0 0 24 24' width='18' height='18' fill='#2e9e6b' aria-hidden='true' style='flex:0 0 auto;'><path d='M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z'/></svg>Livraison en France &amp; au Quebec</div>\n    <div style='display:flex;align-items:center;gap:10px;font-size:1.35rem;'><svg viewBox='0 0 24 24' width='18' height='18' fill='#2e9e6b' aria-hidden='true' style='flex:0 0 auto;'><path d='M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z'/></svg>Paiement 100% securise</div>\n    <div style='display:flex;align-items:center;gap:10px;font-size:1.35rem;'><svg viewBox='0 0 24 24' width='18' height='18' fill='#2e9e6b' aria-hidden='true' style='flex:0 0 auto;'><path d='M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z'/></svg>Satisfait ou rembourse sous 60 jours</div>\n  </div>\n</div>\n"
+            "custom_liquid": "\n<div style='margin-top:4px;'>\n  <div style='border-top:1px solid rgba(58,42,34,.14);padding-top:14px;'>\n    <div style='display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;'>\n      {%- for type in shop.enabled_payment_types -%}\n        {{ type | payment_type_svg_tag: class: 'payment-icon' }}\n      {%- endfor -%}\n    </div>\n  </div>\n\n  <div style='margin-top:16px;background:#ffffff;border:1px solid rgba(212,83,126,.25);border-radius:14px;padding:15px 18px;display:flex;gap:14px;align-items:center;'>\n    <svg viewBox='0 0 24 24' width='34' height='34' fill='#D4537E' aria-hidden='true' style='flex:0 0 auto;'><path d='M12 1l9 4v6c0 5.25-3.6 9.75-9 11-5.4-1.25-9-5.75-9-11V5l9-4zm-1.2 14.4l6-6-1.4-1.4-4.6 4.6-2-2L7.4 12l3.4 3.4z'/></svg>\n    <div>\n      <div style='font-family:var(--font-heading-family, Fraunces, Georgia, serif);font-weight:700;font-size:1.75rem;line-height:1.2;'>Satisfait ou rembourse &mdash; 60 jours</div>\n      <div style='font-size:1.25rem;opacity:.8;line-height:1.4;margin-top:2px;'>Essaie Anae sans risque. Pas convaincu&nbsp;? On te rembourse, tout simplement.</div>\n    </div>\n  </div>\n\n  <div style='margin-top:14px;display:flex;flex-direction:column;gap:9px;'>\n    <div style='display:flex;align-items:center;gap:10px;font-size:1.35rem;'><svg viewBox='0 0 24 24' width='18' height='18' fill='#2e9e6b' aria-hidden='true' style='flex:0 0 auto;'><path d='M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z'/></svg>Livraison en France &amp; au Quebec</div>\n    <div style='display:flex;align-items:center;gap:10px;font-size:1.35rem;'><svg viewBox='0 0 24 24' width='18' height='18' fill='#2e9e6b' aria-hidden='true' style='flex:0 0 auto;'><path d='M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z'/></svg>Paiement 100% securise</div>\n    <div style='display:flex;align-items:center;gap:10px;font-size:1.35rem;'><svg viewBox='0 0 24 24' width='18' height='18' fill='#2e9e6b' aria-hidden='true' style='flex:0 0 auto;'><path d='M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z'/></svg>Satisfait ou rembourse sous 60 jours</div>\n  </div>\n</div>\n"
           }
         },
         "description": {
@@ -145,6 +151,7 @@
       "block_order": [
         "title",
         "rating",
+        "anae_benefits_top",
         "price",
         "buy_buttons",
         "anae_buybox",
@@ -551,7 +558,7 @@
       "type": "anae-reviews",
       "settings": {
         "eyebrow": "Avis clients",
-        "title": "Elles ont adopté Anaé",
+        "title": "Ils & elles ont adopté Anaé",
         "avg_rating": "4,9/5",
         "review_count": "127",
         "padding_top": 64,
@@ -570,10 +577,10 @@
         "a2": {
           "type": "review",
           "settings": {
-            "name": "Sarah L.",
+            "name": "Thomas R.",
             "location": "Montréal",
             "verified": true,
-            "text": "Enfin un complément que je pense à prendre parce qu'il est bon ! Énergie stable toute la matinée, sans être surexcitée comme avec le café."
+            "text": "Je carburais au café toute la journée : nerveux, et vidé à 15h. Avec Anaé, l'énergie est stable et sans la nervosité. Adopté au bureau comme à la salle."
           }
         },
         "a3": {
@@ -588,10 +595,10 @@
         "a4": {
           "type": "review",
           "settings": {
-            "name": "Marie T.",
+            "name": "Karim B.",
             "location": "Paris",
             "verified": true,
-            "text": "Sceptique au début, convaincue après 3 semaines. Je me sens plus au taquet sans la nervosité. Je recommande les yeux fermés."
+            "text": "Sceptique au départ, je pensais que ce n'était « pas pour les mecs ». En vrai ça marche : je le prends avant l'entraînement, énergie franche et zéro coup de barre. Je recommande."
           }
         },
         "a5": {

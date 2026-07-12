@@ -1,11 +1,14 @@
 {%- style -%}
+  /* Fond de page produit en blanc (chargé uniquement sur la fiche produit) */
+  body { background-color: #ffffff !important; }
+  .color-background-1 { background-color: #ffffff !important; }
   #shopify-section-{{ section.id }} .anae-ing {
     --anae-accent: #D4537E;
     --anae-accent-2: #E8915B;
     --anae-ink: #3A2A22;
     --anae-cream: #FBF3E9;
     --anae-beige: #F0DCC4;
-    background: var(--anae-cream);
+    background: #ffffff;
     color: var(--anae-ink);
     padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
   }
