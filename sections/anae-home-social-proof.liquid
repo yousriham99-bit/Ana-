@@ -1,0 +1,122 @@
+{%- liquid
+  assign star = '<svg viewBox="0 0 576 512" aria-hidden="true"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>'
+-%}
+{%- style -%}
+  #shopify-section-{{ section.id }} .anae-sp {
+    --anae-accent: #D4537E; --anae-accent-2: #E8915B; --anae-ink: #3A2A22; --anae-cream: #FBF3E9;
+    background: #fff; color: var(--anae-ink);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .anae-sp__wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+  #shopify-section-{{ section.id }} .anae-sp__top {
+    display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;
+    text-align: center; margin: 0 0 30px; text-decoration: none; color: inherit;
+    background: var(--anae-cream); border-radius: 100px; padding: 14px 26px; width: fit-content; margin-inline: auto;
+  }
+  #shopify-section-{{ section.id }} .anae-sp__score { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: 2.4rem; font-weight: 700; }
+  #shopify-section-{{ section.id }} .anae-sp__stars { display: inline-flex; gap: 2px; }
+  #shopify-section-{{ section.id }} .anae-sp__stars svg { width: 20px; height: 20px; fill: var(--anae-accent); }
+  #shopify-section-{{ section.id }} .anae-sp__count { font-size: 1.5rem; opacity: .8; text-decoration: underline; text-underline-offset: 3px; }
+  #shopify-section-{{ section.id }} .anae-sp__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  #shopify-section-{{ section.id }} .anae-sp__card {
+    background: var(--anae-cream); border-radius: 16px; padding: 22px 22px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  #shopify-section-{{ section.id }} .anae-sp__card .anae-sp__stars svg { width: 15px; height: 15px; }
+  #shopify-section-{{ section.id }} .anae-sp__quote { font-size: 1.5rem; line-height: 1.5; }
+  #shopify-section-{{ section.id }} .anae-sp__author { font-size: 1.3rem; font-weight: 700; margin-top: auto; }
+  #shopify-section-{{ section.id }} .anae-sp__author span { font-weight: 400; opacity: .6; }
+  #shopify-section-{{ section.id }} .anae-sp__reassure {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 30px;
+    margin: 30px 0 0; padding-top: 26px; border-top: 1px solid rgba(58,42,34,.1);
+  }
+  #shopify-section-{{ section.id }} .anae-sp__reassure-item { display: inline-flex; align-items: center; gap: 9px; font-size: 1.4rem; font-weight: 600; }
+  #shopify-section-{{ section.id }} .anae-sp__reassure-item svg { width: 22px; height: 22px; fill: var(--anae-accent); }
+{%- endstyle -%}
+
+<section class="anae-sp" aria-label="Preuve sociale">
+  <div class="anae-sp__wrap">
+    <a class="anae-sp__top" href="{{ section.settings.reviews_anchor }}" aria-label="Voir les {{ section.settings.review_count }} avis clients">
+      <span class="anae-sp__score">{{ section.settings.avg_rating }}</span>
+      <span class="anae-sp__stars">{{ star }}{{ star }}{{ star }}{{ star }}{{ star }}</span>
+      <span class="anae-sp__count">{{ section.settings.review_count }} avis vérifiés</span>
+    </a>
+
+    <div class="anae-sp__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'mini_review' -%}
+          <div class="anae-sp__card" {{ block.shopify_attributes }}>
+            <span class="anae-sp__stars">{{ star }}{{ star }}{{ star }}{{ star }}{{ star }}</span>
+            <p class="anae-sp__quote">{{ block.settings.text }}</p>
+            <p class="anae-sp__author">{{ block.settings.author }} {%- if block.settings.location != blank %}<span>· {{ block.settings.location }}</span>{% endif -%}</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- assign has_reassure = false -%}
+    {%- for block in section.blocks -%}{%- if block.type == 'reassurance' -%}{%- assign has_reassure = true -%}{%- endif -%}{%- endfor -%}
+    {%- if has_reassure -%}
+      <div class="anae-sp__reassure">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'reassurance' -%}
+            <span class="anae-sp__reassure-item" {{ block.shopify_attributes }}>{% render 'anae-icons', icon: block.settings.icon %}{{ block.settings.title }}</span>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Anaé · Preuve sociale",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "avg_rating", "label": "Note moyenne", "default": "4,9/5" },
+    { "type": "text", "id": "review_count", "label": "Nombre d'avis", "default": "127" },
+    { "type": "text", "id": "reviews_anchor", "label": "Ancre section avis", "default": "#avis" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge haut", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge bas", "default": 48 }
+  ],
+  "blocks": [
+    {
+      "type": "mini_review",
+      "name": "Mini-avis",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Avis", "default": "Le coup de barre de 16h a disparu. Et le goût fraise est top." },
+        { "type": "text", "id": "author", "label": "Auteur", "default": "Camille D." },
+        { "type": "text", "id": "location", "label": "Ville", "default": "Lyon" }
+      ]
+    },
+    {
+      "type": "reassurance",
+      "name": "Réassurance",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icône", "default": "shield",
+          "options": [
+            { "value": "shield", "label": "Garantie" }, { "value": "truck", "label": "Livraison" },
+            { "value": "lock", "label": "Paiement sécurisé" }, { "value": "leaf", "label": "Naturel" },
+            { "value": "headset", "label": "Support" }, { "value": "medal", "label": "Qualité" }
+          ] },
+        { "type": "text", "id": "title", "label": "Texte", "default": "Satisfait ou remboursé 60 j" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anaé · Preuve sociale",
+      "blocks": [
+        { "type": "mini_review", "settings": { "text": "J'ai remplacé mon 2e café par un stick Anaé, je ne reviens pas en arrière.", "author": "Camille D.", "location": "Lyon" } },
+        { "type": "mini_review", "settings": { "text": "Énergie stable toute la matinée, sans être surexcitée comme avec le café.", "author": "Sarah L.", "location": "Montréal" } },
+        { "type": "mini_review", "settings": { "text": "Le format stick est parfait pour mes journées de dingue. Simple et efficace.", "author": "Inès B.", "location": "Bordeaux" } },
+        { "type": "reassurance", "settings": { "icon": "shield", "title": "Satisfait ou remboursé 60 j" } },
+        { "type": "reassurance", "settings": { "icon": "truck", "title": "Livraison France & Québec" } },
+        { "type": "reassurance", "settings": { "icon": "lock", "title": "Paiement 100% sécurisé" } },
+        { "type": "reassurance", "settings": { "icon": "leaf", "title": "Actifs d'origine naturelle" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,112 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} .anae-hb {
+    --anae-accent: #D4537E; --anae-accent-2: #E8915B; --anae-ink: #3A2A22;
+    --anae-cream: #FBF3E9; --anae-beige: #F0DCC4;
+    background: #fff; color: var(--anae-ink);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .anae-hb__wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+  #shopify-section-{{ section.id }} .anae-hb__head { text-align: center; max-width: 62ch; margin: 0 auto 52px; }
+  #shopify-section-{{ section.id }} .anae-hb__eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: 1.2rem; font-weight: 700; color: var(--anae-accent); margin: 0 0 10px; }
+  #shopify-section-{{ section.id }} .anae-hb__title { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: clamp(2.6rem, 4vw, 4rem); line-height: 1.1; margin: 0 0 14px; font-weight: 600; }
+  #shopify-section-{{ section.id }} .anae-hb__intro { font-size: 1.6rem; line-height: 1.6; opacity: .82; }
+  #shopify-section-{{ section.id }} .anae-hb__row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 46px; align-items: center; margin: 0 0 40px;
+  }
+  #shopify-section-{{ section.id }} .anae-hb__row:last-child { margin-bottom: 0; }
+  #shopify-section-{{ section.id }} .anae-hb__row:nth-child(even) .anae-hb__media { order: 2; }
+  #shopify-section-{{ section.id }} .anae-hb__tag {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 1.2rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .06em; color: var(--anae-accent);
+    background: rgba(212,83,126,.09); padding: 6px 14px; border-radius: 100px; margin: 0 0 14px;
+  }
+  #shopify-section-{{ section.id }} .anae-hb__tag svg { width: 16px; height: 16px; fill: currentColor; }
+  #shopify-section-{{ section.id }} .anae-hb__row h3 { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: clamp(2.1rem, 3vw, 2.8rem); line-height: 1.15; margin: 0 0 12px; }
+  #shopify-section-{{ section.id }} .anae-hb__row p { font-size: 1.6rem; line-height: 1.6; opacity: .85; margin: 0; }
+  #shopify-section-{{ section.id }} .anae-hb__media img { width: 100%; height: auto; border-radius: 22px; display: block; box-shadow: 0 22px 55px rgba(58,42,34,.14); }
+  #shopify-section-{{ section.id }} .anae-ph {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    aspect-ratio: 4 / 3; border-radius: 22px; text-align: center;
+    background: linear-gradient(135deg, var(--anae-beige), #fff);
+    border: 1px dashed rgba(212,83,126,.4); color: var(--anae-accent);
+  }
+  #shopify-section-{{ section.id }} .anae-ph svg { width: 42px; height: 42px; fill: currentColor; opacity: .55; }
+  #shopify-section-{{ section.id }} .anae-ph span { font-size: 1.3rem; font-weight: 700; opacity: .7; }
+  @media (max-width: 820px) {
+    #shopify-section-{{ section.id }} .anae-hb__row { grid-template-columns: 1fr; gap: 22px; margin-bottom: 46px; }
+    #shopify-section-{{ section.id }} .anae-hb__row:nth-child(even) .anae-hb__media { order: 0; }
+    #shopify-section-{{ section.id }} .anae-hb__media { max-width: 460px; }
+  }
+{%- endstyle -%}
+
+<section class="anae-hb" aria-label="{{ section.settings.title | strip_html | escape }}">
+  <div class="anae-hb__wrap">
+    <div class="anae-hb__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="anae-hb__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.title != blank -%}<h2 class="anae-hb__title">{{ section.settings.title }}</h2>{%- endif -%}
+      {%- if section.settings.intro != blank -%}<div class="anae-hb__intro">{{ section.settings.intro }}</div>{%- endif -%}
+    </div>
+
+    {%- for block in section.blocks -%}
+      <div class="anae-hb__row" {{ block.shopify_attributes }}>
+        <div class="anae-hb__text">
+          {%- if block.settings.tag != blank -%}<span class="anae-hb__tag">{% render 'anae-icons', icon: block.settings.icon %}{{ block.settings.tag }}</span>{%- endif -%}
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+        <div class="anae-hb__media">
+          {%- if block.settings.image != blank -%}
+            <img src="{{ block.settings.image | image_url: width: 760 }}" alt="{{ block.settings.image.alt | default: block.settings.title | escape }}" width="760" height="570" loading="lazy">
+          {%- else -%}
+            <div class="anae-ph">{% render 'anae-icons', icon: block.settings.icon %}<span>Image à venir</span></div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Anaé · Bénéfices (home)",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Pourquoi Anaé" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Un vrai coup de boost, sans les inconvénients du café" },
+    { "type": "richtext", "id": "intro", "label": "Introduction", "default": "<p>Chaque bénéfice d'Anaé est rattaché à un actif réel de la formule. Voici ce que ça change dans ta journée.</p>" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge haut", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge bas", "default": 72 }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Bénéfice",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (placeholder si vide)" },
+        { "type": "select", "id": "icon", "label": "Icône", "default": "bolt",
+          "options": [
+            { "value": "bolt", "label": "Énergie" }, { "value": "timer", "label": "Rapidité" },
+            { "value": "leaf", "label": "Naturel" }, { "value": "drop", "label": "Saveur" },
+            { "value": "heart", "label": "Bien-être" }, { "value": "refresh", "label": "Quotidien" },
+            { "value": "moon", "label": "Sans nervosité" }, { "value": "plant", "label": "Plantes" }
+          ] },
+        { "type": "text", "id": "tag", "label": "Étiquette", "default": "Énergie" },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Une énergie qui tient sans crash" },
+        { "type": "textarea", "id": "text", "label": "Texte", "default": "La caféine naturelle du yerba maté te réveille en douceur et te porte, sans le pic nerveux ni la chute brutale du café de l'après-midi." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anaé · Bénéfices (home)",
+      "blocks": [
+        { "type": "benefit", "settings": { "icon": "bolt", "tag": "Énergie stable", "title": "Une énergie qui tient, sans le crash", "text": "La caféine naturelle du yerba maté te porte en douceur toute la journée, sans le pic nerveux ni la chute brutale du café de 16h." } },
+        { "type": "benefit", "settings": { "icon": "plant", "tag": "Actif signature", "title": "La berbérine au cœur de la formule", "text": "Cet actif d'origine végétale structure Anaé et accompagne ton organisme au quotidien, dans le cadre d'une hygiène de vie équilibrée." } },
+        { "type": "benefit", "settings": { "icon": "timer", "tag": "Simplicité", "title": "Un geste de 10 secondes", "text": "Un stick, un verre d'eau, et tu repars. Aucune gélule, aucune préparation, aucune excuse pour zapper ton rituel." } },
+        { "type": "benefit", "settings": { "icon": "drop", "tag": "Plaisir", "title": "Une saveur fraise qu'on attend", "text": "Fraîche et gourmande, sans texture poudreuse ni arrière-goût. Le seul complément dont tu as vraiment envie chaque matin." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,45 @@
+{%- comment -%}
+  Anaé · Jeu d'icônes SVG réutilisable
+  Usage : {% render 'anae-icons', icon: 'bolt' %}
+  Toutes les icônes utilisent fill:currentColor pour être colorées en CSS.
+  Clés disponibles : bolt, timer, leaf, truck, lock, shield, heart, headset,
+  medal, drop, refresh, sparkle, check, plant, coffee, moon, gift, star.
+{%- endcomment -%}
+{%- case icon -%}
+  {%- when 'bolt' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9z"/></svg>
+  {%- when 'timer' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4a9 9 0 109 9c0-2.12-.74-4.07-1.97-5.61zM12 20a7 7 0 110-14 7 7 0 010 14z"/></svg>
+  {%- when 'leaf' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77 2.34-4.71 5.61-5.39 9.32 2.6 1.23 5.8.78 7.95-1.37C19.43 14.47 20 4 20 4S9.53 4.57 6.05 8.05z"/></svg>
+  {%- when 'truck' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2a3 3 0 006 0h6a3 3 0 006 0h2v-5l-3-4zM6 18.5A1.5 1.5 0 116 15.5a1.5 1.5 0 010 3zm13.5-9L21.46 12H17V9.5h2.5zM18 18.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg>
+  {%- when 'lock' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 8h-1V6A5 5 0 007 6v2H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V10a2 2 0 00-2-2zm-6 9a2 2 0 110-4 2 2 0 010 4zm3-9H9V6a3 3 0 016 0v2z"/></svg>
+  {%- when 'shield' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.2 15.4l-3.6-3.6 1.4-1.4 2.2 2.2 4.6-4.6 1.4 1.4-6 6z"/></svg>
+  {%- when 'heart' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z"/></svg>
+  {%- when 'headset' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1a9 9 0 00-9 9v7a3 3 0 003 3h3v-8H5v-2a7 7 0 0114 0v2h-4v8h4a3 3 0 003-3v-7a9 9 0 00-9-9z"/></svg>
+  {%- when 'medal' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15a5 5 0 100-10 5 5 0 000 10zm0-2a3 3 0 110-6 3 3 0 010 6zm-3 1.7l-2 7.3 5-3 5 3-2-7.3A6.97 6.97 0 0112 16a6.97 6.97 0 01-3-1.3z"/></svg>
+  {%- when 'drop' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2s7 8.3 7 12.5A7 7 0 015 14.5C5 10.3 12 2 12 2zm-1 15.9v-1.6a3 3 0 01-2-2.8H7.5c0 2 1.5 3.7 3.5 4.1v.3h1z"/></svg>
+  {%- when 'refresh' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.65 6.35A8 8 0 1019.73 14h-2.08A6 6 0 116 12a6 6 0 019.9-4.5H13v2h6V3.5h-2v2.85z"/></svg>
+  {%- when 'sparkle' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l1.9 5.6L19.5 9.5 13.9 11.4 12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2zm7 12l.9 2.6L22.5 17.5 20 18.4 19 21l-1-2.6L15.5 17.5 18 16.6 19 14z"/></svg>
+  {%- when 'coffee' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19h16v2H4v-2zM20 3H6v9a5 5 0 005 5h2a5 5 0 005-5v-1h2a2 2 0 002-2V5a2 2 0 00-2-2zm0 4v2h-2V5h2v2z"/></svg>
+  {%- when 'moon' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36A5.4 5.4 0 0112 3.1c-.46-.06-.92-.1-1.36-.1H12z"/></svg>
+  {%- when 'gift' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 7h-2.2A3 3 0 0012 3.2 3 3 0 006.2 7H4a1 1 0 00-1 1v3h9V8h.01V11H21V8a1 1 0 00-1-1zM11 20H4v-7h7v7zm2 0v-7h7v7h-7z"/></svg>
+  {%- when 'star' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+  {%- when 'plant' -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 3c-2.5 0-4.5 1.5-5.5 3.6C8.7 6.2 7.9 6 7 6 4.2 6 2 8.2 2 11c0 .3 0 .6.1.9C4.9 11.5 8 13.4 9.5 16.3V21h1.9v-5.2c1.9-3.3 5.4-5.4 9.2-5.8.1-.3.1-.7.1-1C21.7 5.4 18.7 3 15 3z"/></svg>
+  {%- else -%}
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z"/></svg>
+{%- endcase -%}

@@ -1,0 +1,256 @@
+{
+  "sections": {
+    "hero": {
+      "type": "anae-home-hero",
+      "settings": {
+        "eyebrow": "Énergie naturelle · saveur fraise",
+        "heading": "Ton énergie nette, dans un simple <em>stick</em>",
+        "subheading": "<p>Berbérine + yerba maté dans un verre d'eau. Un boost franc qui tient la journée, sans la nervosité ni la chute du café de 16h.</p>",
+        "cta_label": "Commander maintenant",
+        "cta_url": "shopify://products/anae-cutting-mix-berberine-yerba-mate",
+        "reassurance": "Satisfait ou remboursé 60 jours · Livraison France & Québec",
+        "show_rating": true,
+        "rating_value": "4,9/5",
+        "review_count": "127",
+        "reviews_anchor": "#avis",
+        "image": "shopify://shop_images/anae-hero-banner.png",
+        "badge_title": "10 secondes",
+        "badge_text": "Un stick, un verre d'eau",
+        "badge_icon": "timer",
+        "padding_top": 72,
+        "padding_bottom": 72
+      },
+      "blocks": {
+        "a1": { "type": "advantage", "settings": { "icon": "truck", "title": "Livraison rapide" } },
+        "a2": { "type": "advantage", "settings": { "icon": "lock", "title": "Paiement sécurisé" } },
+        "a3": { "type": "advantage", "settings": { "icon": "shield", "title": "Satisfait ou remboursé" } },
+        "a4": { "type": "advantage", "settings": { "icon": "leaf", "title": "Actifs naturels" } }
+      },
+      "block_order": ["a1", "a2", "a3", "a4"]
+    },
+    "social_proof": {
+      "type": "anae-home-social-proof",
+      "settings": {
+        "avg_rating": "4,9/5",
+        "review_count": "127",
+        "reviews_anchor": "#avis",
+        "padding_top": 48,
+        "padding_bottom": 48
+      },
+      "blocks": {
+        "m1": { "type": "mini_review", "settings": { "text": "J'ai remplacé mon 2e café par un stick Anaé, je ne reviens pas en arrière.", "author": "Camille D.", "location": "Lyon" } },
+        "m2": { "type": "mini_review", "settings": { "text": "Énergie stable toute la matinée, sans être surexcitée comme avec le café.", "author": "Sarah L.", "location": "Montréal" } },
+        "m3": { "type": "mini_review", "settings": { "text": "Le format stick est parfait pour mes journées de dingue. Simple et efficace.", "author": "Inès B.", "location": "Bordeaux" } },
+        "r1": { "type": "reassurance", "settings": { "icon": "shield", "title": "Satisfait ou remboursé 60 j" } },
+        "r2": { "type": "reassurance", "settings": { "icon": "truck", "title": "Livraison France & Québec" } },
+        "r3": { "type": "reassurance", "settings": { "icon": "lock", "title": "Paiement 100% sécurisé" } },
+        "r4": { "type": "reassurance", "settings": { "icon": "leaf", "title": "Actifs d'origine naturelle" } }
+      },
+      "block_order": ["m1", "m2", "m3", "r1", "r2", "r3", "r4"]
+    },
+    "start": {
+      "type": "anae-home-start",
+      "settings": {
+        "eyebrow": "Nouveau chez Anaé ?",
+        "title": "Vous ne savez pas par où commencer ?",
+        "intro": "<p>Pas besoin d'être expert en compléments. Anaé, c'est un geste simple qui se glisse dans ta journée. Voici comment démarrer sereinement.</p>",
+        "cta_label": "Commencer avec Anaé",
+        "cta_url": "shopify://products/anae-cutting-mix-berberine-yerba-mate",
+        "image": "shopify://shop_images/4E4C4930-525F-496F-9CAC-B1564CD5402A.jpg",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Commande ta première boîte", "text": "Un mois de sticks pour installer le rituel sans t'engager sur le long terme." } },
+        "s2": { "type": "step", "settings": { "title": "Prends un stick par jour", "text": "Le matin ou en début d'après-midi, dans un grand verre d'eau fraîche. 10 secondes, c'est tout." } },
+        "s3": { "type": "step", "settings": { "title": "Observe la différence", "text": "Une énergie plus stable, moins de coups de mou. Pas convaincu ? Tu es remboursé sous 60 jours." } }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+    "benefits": {
+      "type": "anae-home-benefits",
+      "settings": {
+        "eyebrow": "Pourquoi Anaé",
+        "title": "Un vrai coup de boost, sans les inconvénients du café",
+        "intro": "<p>Chaque bénéfice d'Anaé est rattaché à un actif réel de la formule. Voici ce que ça change dans ta journée.</p>",
+        "padding_top": 72,
+        "padding_bottom": 72
+      },
+      "blocks": {
+        "b1": { "type": "benefit", "settings": { "icon": "bolt", "tag": "Énergie stable", "title": "Une énergie qui tient, sans le crash", "text": "La caféine naturelle du yerba maté te porte en douceur toute la journée, sans le pic nerveux ni la chute brutale du café de 16h." } },
+        "b2": { "type": "benefit", "settings": { "icon": "plant", "tag": "Actif signature", "title": "La berbérine au cœur de la formule", "text": "Cet actif d'origine végétale structure Anaé et accompagne ton organisme au quotidien, dans le cadre d'une hygiène de vie équilibrée." } },
+        "b3": { "type": "benefit", "settings": { "icon": "timer", "tag": "Simplicité", "title": "Un geste de 10 secondes", "text": "Un stick, un verre d'eau, et tu repars. Aucune gélule, aucune préparation, aucune excuse pour zapper ton rituel." } },
+        "b4": { "type": "benefit", "settings": { "icon": "drop", "tag": "Plaisir", "title": "Une saveur fraise qu'on attend", "text": "Fraîche et gourmande, sans texture poudreuse ni arrière-goût. Le seul complément dont tu as vraiment envie chaque matin." } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "how": {
+      "type": "anae-how-it-works",
+      "settings": {
+        "eyebrow": "Le rituel",
+        "title": "Ton énergie en 3 gestes",
+        "note": "<p>Un geste de 10 secondes, le matin ou en début d'aprèm. Aucune préparation, aucune contrainte &mdash; juste toi et ton verre.</p>",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "st1": { "type": "step", "settings": { "title": "Verse", "text": "Un stick Anaé dans un grand verre d'eau fraîche, où que tu sois." } },
+        "st2": { "type": "step", "settings": { "title": "Mélange", "text": "10 secondes suffisent. La poudre se dissout, la couleur fraise apparaît." } },
+        "st3": { "type": "step", "settings": { "title": "Ressens", "text": "Une énergie nette qui monte en douceur &mdash; sans pic, sans chute, sans nervosité." } }
+      },
+      "block_order": ["st1", "st2", "st3"]
+    },
+    "ingredients": {
+      "type": "anae-ingredients",
+      "settings": {
+        "eyebrow": "La formule",
+        "title": "Une formule courte. Des actifs qui comptent.",
+        "intro": "<p>Pas de liste à rallonge : chaque ingrédient d'Anaé a une raison d'être. Voici ce qui compose ton stick.</p>",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "i1": { "type": "ingredient", "settings": { "tag": "Actif clé", "name": "Berbérine", "text": "L'actif signature d'Anaé, extrait de plantes. Il structure la formule et soutient ton énergie de fond." } },
+        "i2": { "type": "ingredient", "settings": { "tag": "Énergie", "name": "Yerba Maté", "text": "La plante des gauchos d'Amérique du Sud, riche en caféine naturelle, pour un boost franc sans la nervosité du café." } },
+        "i3": { "type": "ingredient", "settings": { "tag": "Vitalité", "name": "Vitamines B", "text": "Un coup de pouce au métabolisme énergétique, pour transformer ce que tu manges en énergie utilisable." } },
+        "i4": { "type": "ingredient", "settings": { "tag": "Plaisir", "name": "Arôme fraise naturel", "text": "Une saveur fraîche et gourmande qui donne envie de recommencer. Zéro arrière-goût poudreux." } }
+      },
+      "block_order": ["i1", "i2", "i3", "i4"]
+    },
+    "heritage": {
+      "type": "anae-home-heritage",
+      "settings": {
+        "eyebrow": "Le bon sens d'avant",
+        "title": "Ce que savait déjà ton arrière-grand-mère",
+        "body": "<p>Bien avant les canettes fluo et le café en dosettes, on tirait son énergie de <strong>plantes</strong>. En Amérique du Sud, les gauchos partageaient le <strong>yerba maté</strong> pour tenir des journées entières à cheval. Ailleurs, la <strong>berbérine</strong>, extraite de plantes, était réputée depuis des générations.</p><p>On a fini par troquer ce bon sens contre des excitants qui donnent un coup de fouet… puis te lâchent. Anaé, c'est simplement le retour à ces sources naturelles &mdash; réunies dans un geste moderne de 10 secondes.</p>",
+        "image": "shopify://shop_images/46165444-A16A-4D49-9F0A-4C7FC0D176B9.jpg",
+        "show_budget": true,
+        "budget_title": "Fais le calcul",
+        "budget_sub": "Ce que coûte vraiment ton énergie chaque jour.",
+        "old_label": "Café acheté dehors",
+        "old_day": "≈ 4 €",
+        "old_month": "120 €",
+        "old_note": "2 cafés par jour, et le coup de barre revient quand même.",
+        "new_label": "Ton rituel Anaé",
+        "new_day": "≈ 1,30 €",
+        "new_month": "39,95 €",
+        "new_note": "Un stick par jour, une énergie stable — et satisfait ou remboursé.",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "comparison": {
+      "type": "anae-home-comparison",
+      "settings": {
+        "eyebrow": "Comparatif",
+        "title": "Anaé face aux alternatives",
+        "intro": "<p>Ce qui distingue le rituel Anaé des solutions classiques pour tenir la journée.</p>",
+        "competitors": 3,
+        "us_label": "Anaé",
+        "alt1_label": "Café",
+        "alt2_label": "Energy drinks",
+        "alt3_label": "Compléments classiques",
+        "padding_top": 72,
+        "padding_bottom": 72
+      },
+      "blocks": {
+        "c1": { "type": "row", "settings": { "feature": "Énergie stable sans crash", "us": true, "alt1": false, "alt2": false, "alt3": true } },
+        "c2": { "type": "row", "settings": { "feature": "Actifs d'origine naturelle", "us": true, "alt1": true, "alt2": false, "alt3": true } },
+        "c3": { "type": "row", "settings": { "feature": "Sans sucres ajoutés à outrance", "us": true, "alt1": true, "alt2": false, "alt3": true } },
+        "c4": { "type": "row", "settings": { "feature": "Geste de 10 secondes, nomade", "us": true, "alt1": true, "alt2": true, "alt3": false } },
+        "c5": { "type": "row", "settings": { "feature": "Saveur gourmande qu'on attend", "us": true, "alt1": false, "alt2": true, "alt3": false } },
+        "c6": { "type": "row", "settings": { "feature": "Satisfait ou remboursé 60 jours", "us": true, "alt1": false, "alt2": false, "alt3": false } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4", "c5", "c6"]
+    },
+    "reviews": {
+      "type": "anae-reviews",
+      "settings": {
+        "eyebrow": "Avis clients",
+        "title": "Elles ont adopté Anaé",
+        "avg_rating": "4,9/5",
+        "review_count": "127",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "rv1": { "type": "review", "settings": { "name": "Camille D.", "location": "Lyon", "verified": true, "text": "J'ai remplacé mon 2e café par un stick Anaé et je ne reviens pas en arrière. Le coup de barre de 16h a disparu, et le goût fraise est top." } },
+        "rv2": { "type": "review", "settings": { "name": "Sarah L.", "location": "Montréal", "verified": true, "text": "Enfin un complément que je pense à prendre parce qu'il est bon ! Énergie stable toute la matinée, sans être surexcitée comme avec le café." } },
+        "rv3": { "type": "review", "settings": { "name": "Inès B.", "location": "Bordeaux", "verified": true, "text": "Le format stick est parfait pour mes journées de dingue. Je le glisse dans mon sac et hop. Livraison rapide en plus." } },
+        "rv4": { "type": "review", "settings": { "name": "Marie T.", "location": "Paris", "verified": true, "text": "Sceptique au début, convaincue après 3 semaines. Je me sens plus au taquet sans la nervosité. Je recommande les yeux fermés." } },
+        "rv5": { "type": "review", "settings": { "name": "Léa M.", "location": "Québec", "verified": true, "text": "La saveur fraise est vraiment naturelle, pas chimique. Le geste du matin est devenu mon petit rituel plaisir." } },
+        "rv6": { "type": "review", "settings": { "name": "Julie R.", "location": "Nantes", "verified": true, "text": "Ça faisait longtemps que je cherchais une alternative au café. Anaé coche toutes les cases : simple, bon, efficace." } }
+      },
+      "block_order": ["rv1", "rv2", "rv3", "rv4", "rv5", "rv6"]
+    },
+    "faq": {
+      "type": "anae-home-faq",
+      "settings": {
+        "eyebrow": "On répond à tout",
+        "title": "Questions fréquentes",
+        "padding_top": 72,
+        "padding_bottom": 72
+      },
+      "blocks": {
+        "q1": { "type": "qa", "settings": { "question": "Comment fonctionne Anaé ?", "answer": "<p>Anaé associe la berbérine (actif d'origine végétale) au yerba maté, source de caféine naturelle, et à des vitamines B. L'ensemble soutient une énergie stable au quotidien, dans le cadre d'une hygiène de vie équilibrée.</p>", "open": true } },
+        "q2": { "type": "qa", "settings": { "question": "Comment et quand le prendre ?", "answer": "<p>Un stick par jour, versé dans un grand verre d'eau fraîche, idéalement le matin ou en début d'après-midi. Mélange 10 secondes et bois immédiatement.</p>", "open": false } },
+        "q3": { "type": "qa", "settings": { "question": "En combien de temps voit-on des résultats ?", "answer": "<p>Beaucoup ressentent une énergie plus régulière dès les premiers jours. Comme tout rituel, l'idéal est de le tester sur 3 à 4 semaines pour juger sur la durée.</p>", "open": false } },
+        "q4": { "type": "qa", "settings": { "question": "Où et en combien de temps livrez-vous ?", "answer": "<p>Nous livrons en France métropolitaine et au Québec. Expédition sous 24 à 48 h, avec un suivi envoyé par e-mail dès le départ du colis.</p>", "open": false } },
+        "q5": { "type": "qa", "settings": { "question": "Puis-je être remboursé si je ne suis pas convaincu ?", "answer": "<p>Oui. Tu bénéficies d'une garantie satisfait ou remboursé de 60 jours, même si le stick est entamé. Il te suffit de nous contacter.</p>", "open": false } },
+        "q6": { "type": "qa", "settings": { "question": "Y a-t-il des précautions d'usage ?", "answer": "<p>Anaé est un complément alimentaire : il ne remplace pas une alimentation variée ni un mode de vie sain. Déconseillé aux femmes enceintes ou allaitantes et aux enfants. En cas de doute, demande l'avis de ton médecin.</p>", "open": false } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"]
+    },
+    "guarantees": {
+      "type": "anae-home-guarantees",
+      "settings": {
+        "eyebrow": "Commande en confiance",
+        "title": "Nos garanties",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "g1": { "type": "guarantee", "settings": { "icon": "heart", "title": "Satisfait ou remboursé", "text": "60 jours pour tester Anaé sans risque, même stick entamé." } },
+        "g2": { "type": "guarantee", "settings": { "icon": "lock", "title": "Paiement sécurisé", "text": "Transactions chiffrées et 100 % protégées." } },
+        "g3": { "type": "guarantee", "settings": { "icon": "truck", "title": "Livraison rapide", "text": "Expédition sous 24-48 h en France & au Québec." } },
+        "g4": { "type": "guarantee", "settings": { "icon": "headset", "title": "Support client", "text": "Une question ? On te répond sous 24 h ouvrées." } },
+        "g5": { "type": "guarantee", "settings": { "icon": "medal", "title": "Garantie qualité", "text": "Une formule courte et lisible, des actifs sélectionnés." } }
+      },
+      "block_order": ["g1", "g2", "g3", "g4", "g5"]
+    },
+    "final_cta": {
+      "type": "anae-home-final-cta",
+      "settings": {
+        "eyebrow": "Prêt à changer de rituel ?",
+        "title": "Ton énergie t'attend dans un stick",
+        "text": "<p>Une énergie stable, un geste de 10 secondes, une saveur qu'on adore. Rejoins celles et ceux qui ont remplacé le café qui les lâche.</p>",
+        "cta_label": "Commander maintenant",
+        "cta_url": "shopify://products/anae-cutting-mix-berberine-yerba-mate",
+        "reassurance": "Satisfait ou remboursé 60 jours · Paiement sécurisé · Livraison rapide",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "f1": { "type": "benefit", "settings": { "icon": "bolt", "title": "Énergie sans crash" } },
+        "f2": { "type": "benefit", "settings": { "icon": "timer", "title": "Geste de 10 sec" } },
+        "f3": { "type": "benefit", "settings": { "icon": "drop", "title": "Saveur fraise" } },
+        "f4": { "type": "benefit", "settings": { "icon": "shield", "title": "Garantie 60 j" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4"]
+    }
+  },
+  "order": [
+    "hero",
+    "social_proof",
+    "start",
+    "benefits",
+    "how",
+    "ingredients",
+    "heritage",
+    "comparison",
+    "reviews",
+    "faq",
+    "guarantees",
+    "final_cta"
+  ]
+}

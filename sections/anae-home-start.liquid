@@ -1,0 +1,124 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} .anae-start {
+    --anae-accent: #D4537E; --anae-accent-2: #E8915B; --anae-ink: #3A2A22;
+    --anae-cream: #FBF3E9; --anae-beige: #F0DCC4;
+    background: var(--anae-cream); color: var(--anae-ink);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .anae-start__wrap {
+    max-width: 1120px; margin: 0 auto; padding: 0 20px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  }
+  #shopify-section-{{ section.id }} .anae-start__eyebrow {
+    text-transform: uppercase; letter-spacing: .16em; font-size: 1.2rem; font-weight: 700;
+    color: var(--anae-accent); margin: 0 0 12px;
+  }
+  #shopify-section-{{ section.id }} .anae-start__title {
+    font-family: var(--font-heading-family, 'Fraunces', Georgia, serif);
+    font-size: clamp(2.6rem, 4vw, 4rem); line-height: 1.1; margin: 0 0 16px; font-weight: 600;
+  }
+  #shopify-section-{{ section.id }} .anae-start__intro { font-size: 1.65rem; line-height: 1.6; opacity: .85; margin: 0 0 28px; }
+  #shopify-section-{{ section.id }} .anae-start__steps { display: flex; flex-direction: column; gap: 16px; margin: 0 0 28px; }
+  #shopify-section-{{ section.id }} .anae-start__step { display: flex; gap: 16px; align-items: flex-start; }
+  #shopify-section-{{ section.id }} .anae-start__num {
+    width: 42px; height: 42px; flex: 0 0 auto; border-radius: 50%;
+    background: linear-gradient(54deg, var(--anae-accent-2) 14%, var(--anae-accent) 85%);
+    color: #fff; font-weight: 700; font-size: 1.7rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-heading-family, 'Fraunces', Georgia, serif);
+  }
+  #shopify-section-{{ section.id }} .anae-start__step h3 { font-size: 1.75rem; margin: 4px 0 4px; font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); }
+  #shopify-section-{{ section.id }} .anae-start__step p { font-size: 1.45rem; line-height: 1.55; opacity: .8; margin: 0; }
+  #shopify-section-{{ section.id }} .anae-start__cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(54deg, var(--anae-accent-2) 14%, var(--anae-accent) 85%);
+    color: #fff; font-weight: 700; font-size: 1.6rem; padding: 16px 34px; border-radius: 100px;
+    text-decoration: none; box-shadow: 0 12px 26px rgba(212,83,126,.3);
+  }
+  #shopify-section-{{ section.id }} .anae-start__cta svg { width: 20px; height: 20px; fill: #fff; }
+  #shopify-section-{{ section.id }} .anae-start__media img { width: 100%; height: auto; border-radius: 24px; display: block; box-shadow: 0 24px 60px rgba(58,42,34,.15); }
+  #shopify-section-{{ section.id }} .anae-ph {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    aspect-ratio: 1 / 1; border-radius: 24px; text-align: center;
+    background: linear-gradient(135deg, var(--anae-beige), #fff);
+    border: 1px dashed rgba(212,83,126,.4); color: var(--anae-accent);
+  }
+  #shopify-section-{{ section.id }} .anae-ph svg { width: 46px; height: 46px; fill: currentColor; opacity: .55; }
+  #shopify-section-{{ section.id }} .anae-ph span { font-size: 1.35rem; font-weight: 700; opacity: .7; }
+  @media (max-width: 860px) {
+    #shopify-section-{{ section.id }} .anae-start__wrap { grid-template-columns: 1fr; gap: 30px; }
+    #shopify-section-{{ section.id }} .anae-start__media { order: -1; max-width: 420px; }
+  }
+{%- endstyle -%}
+
+<section class="anae-start" aria-label="{{ section.settings.title | strip_html | escape }}">
+  <div class="anae-start__wrap">
+    <div class="anae-start__content">
+      {%- if section.settings.eyebrow != blank -%}<p class="anae-start__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.title != blank -%}<h2 class="anae-start__title">{{ section.settings.title }}</h2>{%- endif -%}
+      {%- if section.settings.intro != blank -%}<div class="anae-start__intro">{{ section.settings.intro }}</div>{%- endif -%}
+
+      <div class="anae-start__steps">
+        {%- for block in section.blocks -%}
+          <div class="anae-start__step" {{ block.shopify_attributes }}>
+            <span class="anae-start__num">{{ forloop.index }}</span>
+            <div>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.cta_label != blank -%}
+        <a class="anae-start__cta" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}{% render 'anae-icons', icon: 'bolt' %}</a>
+      {%- endif -%}
+    </div>
+
+    <div class="anae-start__media">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image.alt | escape }}" width="800" height="800" loading="lazy">
+      {%- else -%}
+        <div class="anae-ph">{% render 'anae-icons', icon: 'leaf' %}<span>Image lifestyle à venir</span></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Anaé · Par où commencer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Nouveau chez Anaé ?" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Vous ne savez pas par où commencer ?" },
+    { "type": "richtext", "id": "intro", "label": "Introduction", "default": "<p>Pas besoin d'être expert en compléments. Anaé, c'est un geste simple qui se glisse dans ta journée. Voici comment démarrer sereinement.</p>" },
+    { "type": "text", "id": "cta_label", "label": "Bouton — texte", "default": "Commencer avec Anaé" },
+    { "type": "url", "id": "cta_url", "label": "Bouton — lien" },
+    { "type": "image_picker", "id": "image", "label": "Image (placeholder si vide)" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge haut", "default": 64 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge bas", "default": 64 }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Étape",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titre", "default": "Choisis ton format" },
+        { "type": "textarea", "id": "text", "label": "Texte", "default": "Commence par une boîte pour tester le rituel sur quelques semaines." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anaé · Par où commencer",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Commande ta première boîte", "text": "Un mois de sticks pour installer le rituel sans t'engager sur le long terme." } },
+        { "type": "step", "settings": { "title": "Prends un stick par jour", "text": "Le matin ou en début d'après-midi, dans un grand verre d'eau fraîche. 10 secondes, c'est tout." } },
+        { "type": "step", "settings": { "title": "Observe la différence", "text": "Une énergie plus stable, moins de coups de mou. Pas convaincu ? Tu es remboursé sous 60 jours." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

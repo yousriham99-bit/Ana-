@@ -1,0 +1,124 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} .anae-her {
+    --anae-accent: #D4537E; --anae-accent-2: #E8915B; --anae-ink: #3A2A22;
+    --anae-cream: #FBF3E9; --anae-beige: #F0DCC4;
+    background: var(--anae-ink); color: var(--anae-cream);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .anae-her__wrap {
+    max-width: 1140px; margin: 0 auto; padding: 0 20px;
+    display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center;
+  }
+  #shopify-section-{{ section.id }} .anae-her__eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: 1.2rem; font-weight: 700; color: var(--anae-accent-2); margin: 0 0 12px; }
+  #shopify-section-{{ section.id }} .anae-her__title { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: clamp(2.6rem, 4vw, 4.2rem); line-height: 1.08; margin: 0 0 18px; font-weight: 600; }
+  #shopify-section-{{ section.id }} .anae-her__body { font-size: 1.65rem; line-height: 1.65; opacity: .88; }
+  #shopify-section-{{ section.id }} .anae-her__body p { margin: 0 0 14px; }
+  #shopify-section-{{ section.id }} .anae-her__body strong { color: #fff; }
+  #shopify-section-{{ section.id }} .anae-her__media img { width: 100%; height: auto; border-radius: 22px; display: block; }
+  #shopify-section-{{ section.id }} .anae-ph {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    aspect-ratio: 3 / 4; border-radius: 22px; text-align: center;
+    background: rgba(251,243,233,.06); border: 1px dashed rgba(232,145,91,.5); color: var(--anae-accent-2);
+  }
+  #shopify-section-{{ section.id }} .anae-ph svg { width: 44px; height: 44px; fill: currentColor; opacity: .7; }
+  #shopify-section-{{ section.id }} .anae-ph span { font-size: 1.3rem; font-weight: 700; opacity: .8; }
+
+  #shopify-section-{{ section.id }} .anae-budget {
+    max-width: 1140px; margin: 46px auto 0; padding: 0 20px;
+  }
+  #shopify-section-{{ section.id }} .anae-budget__inner {
+    background: rgba(251,243,233,.05); border: 1px solid rgba(251,243,233,.12); border-radius: 22px; padding: 30px;
+  }
+  #shopify-section-{{ section.id }} .anae-budget__title { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: 2.2rem; text-align: center; margin: 0 0 6px; }
+  #shopify-section-{{ section.id }} .anae-budget__sub { text-align: center; font-size: 1.4rem; opacity: .7; margin: 0 0 24px; }
+  #shopify-section-{{ section.id }} .anae-budget__grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: stretch; }
+  #shopify-section-{{ section.id }} .anae-budget__card { border-radius: 16px; padding: 24px; text-align: center; }
+  #shopify-section-{{ section.id }} .anae-budget__card--old { background: rgba(251,243,233,.04); border: 1px solid rgba(251,243,233,.1); }
+  #shopify-section-{{ section.id }} .anae-budget__card--new { background: linear-gradient(160deg, rgba(212,83,126,.22), rgba(232,145,91,.12)); border: 1px solid rgba(212,83,126,.5); }
+  #shopify-section-{{ section.id }} .anae-budget__label { font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; opacity: .8; margin: 0 0 10px; }
+  #shopify-section-{{ section.id }} .anae-budget__amount { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: 3.4rem; line-height: 1; margin: 0 0 4px; }
+  #shopify-section-{{ section.id }} .anae-budget__amount span { font-size: 1.5rem; opacity: .7; }
+  #shopify-section-{{ section.id }} .anae-budget__month { font-size: 1.45rem; opacity: .8; margin: 0 0 10px; }
+  #shopify-section-{{ section.id }} .anae-budget__note { font-size: 1.3rem; opacity: .7; margin: 0; }
+  #shopify-section-{{ section.id }} .anae-budget__vs {
+    align-self: center; width: 48px; height: 48px; border-radius: 50%;
+    background: #fff; color: var(--anae-ink); font-weight: 800; font-size: 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  @media (max-width: 860px) {
+    #shopify-section-{{ section.id }} .anae-her__wrap { grid-template-columns: 1fr; gap: 28px; }
+    #shopify-section-{{ section.id }} .anae-her__media { max-width: 380px; }
+    #shopify-section-{{ section.id }} .anae-budget__grid { grid-template-columns: 1fr; }
+    #shopify-section-{{ section.id }} .anae-budget__vs { margin: -6px auto; }
+  }
+{%- endstyle -%}
+
+<section class="anae-her" aria-label="{{ section.settings.title | strip_html | escape }}">
+  <div class="anae-her__wrap">
+    <div class="anae-her__content">
+      {%- if section.settings.eyebrow != blank -%}<p class="anae-her__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.title != blank -%}<h2 class="anae-her__title">{{ section.settings.title }}</h2>{%- endif -%}
+      {%- if section.settings.body != blank -%}<div class="anae-her__body">{{ section.settings.body }}</div>{%- endif -%}
+    </div>
+    <div class="anae-her__media">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 720 }}" alt="{{ section.settings.image.alt | escape }}" width="720" height="960" loading="lazy">
+      {%- else -%}
+        <div class="anae-ph">{% render 'anae-icons', icon: 'plant' %}<span>Image d'ambiance à venir</span></div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if section.settings.show_budget -%}
+    <div class="anae-budget">
+      <div class="anae-budget__inner">
+        {%- if section.settings.budget_title != blank -%}<h3 class="anae-budget__title">{{ section.settings.budget_title }}</h3>{%- endif -%}
+        {%- if section.settings.budget_sub != blank -%}<p class="anae-budget__sub">{{ section.settings.budget_sub }}</p>{%- endif -%}
+        <div class="anae-budget__grid">
+          <div class="anae-budget__card anae-budget__card--old">
+            <p class="anae-budget__label">{{ section.settings.old_label }}</p>
+            <p class="anae-budget__amount">{{ section.settings.old_day }}<span> /jour</span></p>
+            <p class="anae-budget__month">≈ {{ section.settings.old_month }} /mois</p>
+            <p class="anae-budget__note">{{ section.settings.old_note }}</p>
+          </div>
+          <div class="anae-budget__vs" aria-hidden="true">vs</div>
+          <div class="anae-budget__card anae-budget__card--new">
+            <p class="anae-budget__label">{{ section.settings.new_label }}</p>
+            <p class="anae-budget__amount">{{ section.settings.new_day }}<span> /jour</span></p>
+            <p class="anae-budget__month">≈ {{ section.settings.new_month }} /mois</p>
+            <p class="anae-budget__note">{{ section.settings.new_note }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Anaé · Héritage & budget",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Le bon sens d'avant" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Ce que savait déjà ton arrière-grand-mère" },
+    { "type": "richtext", "id": "body", "label": "Texte", "default": "<p>Bien avant les canettes fluo et le café en dosettes, on tirait son énergie de <strong>plantes</strong>. En Amérique du Sud, les gauchos partageaient le <strong>yerba maté</strong> pour tenir des journées entières à cheval. Ailleurs, la <strong>berbérine</strong>, extraite de plantes, était réputée depuis des générations.</p><p>On a fini par troquer ce bon sens contre des excitants qui donnent un coup de fouet… puis te lâchent. Anaé, c'est simplement le retour à ces sources naturelles — réunies dans un geste moderne de 10 secondes.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Image (placeholder si vide)" },
+    { "type": "header", "content": "Comparatif de budget" },
+    { "type": "checkbox", "id": "show_budget", "label": "Afficher le comparatif de budget", "default": true },
+    { "type": "text", "id": "budget_title", "label": "Titre du comparatif", "default": "Fais le calcul" },
+    { "type": "text", "id": "budget_sub", "label": "Sous-titre", "default": "Ce que coûte vraiment ton énergie chaque jour." },
+    { "type": "text", "id": "old_label", "label": "Colonne gauche — label", "default": "Café acheté dehors" },
+    { "type": "text", "id": "old_day", "label": "Gauche — prix/jour", "default": "≈ 4 €" },
+    { "type": "text", "id": "old_month", "label": "Gauche — prix/mois", "default": "120 €" },
+    { "type": "text", "id": "old_note", "label": "Gauche — note", "default": "2 cafés par jour, et le coup de barre revient quand même." },
+    { "type": "text", "id": "new_label", "label": "Colonne droite — label", "default": "Ton rituel Anaé" },
+    { "type": "text", "id": "new_day", "label": "Droite — prix/jour", "default": "≈ 1,30 €" },
+    { "type": "text", "id": "new_month", "label": "Droite — prix/mois", "default": "39,95 €" },
+    { "type": "text", "id": "new_note", "label": "Droite — note", "default": "Un stick par jour, une énergie stable — et satisfait ou remboursé." },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge haut", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge bas", "default": 72 }
+  ],
+  "presets": [ { "name": "Anaé · Héritage & budget" } ]
+}
+{% endschema %}

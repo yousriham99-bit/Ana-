@@ -1,0 +1,88 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} .anae-faq {
+    --anae-accent: #D4537E; --anae-accent-2: #E8915B; --anae-ink: #3A2A22;
+    --anae-cream: #FBF3E9; --anae-beige: #F0DCC4;
+    background: #fff; color: var(--anae-ink);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .anae-faq__wrap { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+  #shopify-section-{{ section.id }} .anae-faq__head { text-align: center; margin: 0 0 40px; }
+  #shopify-section-{{ section.id }} .anae-faq__eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: 1.2rem; font-weight: 700; color: var(--anae-accent); margin: 0 0 10px; }
+  #shopify-section-{{ section.id }} .anae-faq__title { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: clamp(2.6rem, 4vw, 4rem); line-height: 1.1; margin: 0; font-weight: 600; }
+  #shopify-section-{{ section.id }} .anae-faq__item {
+    border: 1px solid rgba(58,42,34,.14); border-radius: 14px; margin: 0 0 12px; overflow: hidden; background: var(--anae-cream);
+  }
+  #shopify-section-{{ section.id }} .anae-faq__item[open] { border-color: rgba(212,83,126,.5); }
+  #shopify-section-{{ section.id }} .anae-faq__q {
+    list-style: none; cursor: pointer; padding: 20px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    font-size: 1.65rem; font-weight: 700; font-family: var(--font-heading-family, 'Fraunces', Georgia, serif);
+  }
+  #shopify-section-{{ section.id }} .anae-faq__q::-webkit-details-marker { display: none; }
+  #shopify-section-{{ section.id }} .anae-faq__q:focus-visible { outline: 2px solid var(--anae-accent); outline-offset: -2px; }
+  #shopify-section-{{ section.id }} .anae-faq__sign { position: relative; width: 20px; height: 20px; flex: 0 0 auto; }
+  #shopify-section-{{ section.id }} .anae-faq__sign::before,
+  #shopify-section-{{ section.id }} .anae-faq__sign::after { content: ""; position: absolute; background: var(--anae-accent); border-radius: 2px; transition: transform .2s ease; }
+  #shopify-section-{{ section.id }} .anae-faq__sign::before { top: 9px; left: 0; width: 20px; height: 2px; }
+  #shopify-section-{{ section.id }} .anae-faq__sign::after { left: 9px; top: 0; width: 2px; height: 20px; }
+  #shopify-section-{{ section.id }} .anae-faq__item[open] .anae-faq__sign::after { transform: scaleY(0); }
+  #shopify-section-{{ section.id }} .anae-faq__a { padding: 0 22px 22px; font-size: 1.5rem; line-height: 1.6; opacity: .85; }
+  #shopify-section-{{ section.id }} .anae-faq__a p { margin: 0 0 10px; }
+  #shopify-section-{{ section.id }} .anae-faq__a p:last-child { margin-bottom: 0; }
+{%- endstyle -%}
+
+<section class="anae-faq" aria-label="Foire aux questions">
+  <div class="anae-faq__wrap">
+    <div class="anae-faq__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="anae-faq__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.title != blank -%}<h2 class="anae-faq__title">{{ section.settings.title }}</h2>{%- endif -%}
+    </div>
+
+    {%- for block in section.blocks -%}
+      <details class="anae-faq__item" {% if block.settings.open %}open{% endif %} {{ block.shopify_attributes }}>
+        <summary class="anae-faq__q">
+          <span>{{ block.settings.question }}</span>
+          <span class="anae-faq__sign" aria-hidden="true"></span>
+        </summary>
+        <div class="anae-faq__a">{{ block.settings.answer }}</div>
+      </details>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Anaé · FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "On répond à tout" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Questions fréquentes" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge haut", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge bas", "default": 72 }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Comment utiliser Anaé ?" },
+        { "type": "richtext", "id": "answer", "label": "Réponse", "default": "<p>Verse un stick dans un grand verre d'eau, mélange 10 secondes et bois immédiatement.</p>" },
+        { "type": "checkbox", "id": "open", "label": "Ouvert par défaut", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anaé · FAQ",
+      "blocks": [
+        { "type": "qa", "settings": { "question": "Comment fonctionne Anaé ?", "answer": "<p>Anaé associe la berbérine (actif d'origine végétale) au yerba maté, source de caféine naturelle, et à des vitamines B. L'ensemble soutient une énergie stable au quotidien, dans le cadre d'une hygiène de vie équilibrée.</p>", "open": true } },
+        { "type": "qa", "settings": { "question": "Comment et quand le prendre ?", "answer": "<p>Un stick par jour, versé dans un grand verre d'eau fraîche, idéalement le matin ou en début d'après-midi. Mélange 10 secondes et bois immédiatement.</p>" } },
+        { "type": "qa", "settings": { "question": "En combien de temps voit-on des résultats ?", "answer": "<p>Beaucoup ressentent une énergie plus régulière dès les premiers jours. Comme tout rituel, l'idéal est de le tester sur 3 à 4 semaines pour juger sur la durée.</p>" } },
+        { "type": "qa", "settings": { "question": "Où et en combien de temps livrez-vous ?", "answer": "<p>Nous livrons en France métropolitaine et au Québec. Expédition sous 24 à 48 h, avec un suivi envoyé par e-mail dès le départ du colis.</p>" } },
+        { "type": "qa", "settings": { "question": "Puis-je être remboursé si je ne suis pas convaincu ?", "answer": "<p>Oui. Tu bénéficies d'une garantie satisfait ou remboursé de 60 jours, même si le stick est entamé. Il te suffit de nous contacter.</p>" } },
+        { "type": "qa", "settings": { "question": "Y a-t-il des précautions d'usage ?", "answer": "<p>Anaé est un complément alimentaire : il ne remplace pas une alimentation variée ni un mode de vie sain. Déconseillé aux femmes enceintes ou allaitantes et aux enfants. En cas de doute, demande l'avis de ton médecin.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

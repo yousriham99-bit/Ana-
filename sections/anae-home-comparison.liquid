@@ -1,0 +1,122 @@
+{%- liquid
+  assign yes = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z"/></svg>'
+  assign no = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7L12 12l-6.3-6.3-1.4 1.4L10.6 13.4 4.3 19.7l1.4 1.4L12 14.8l6.3 6.3 1.4-1.4-6.3-6.3 6.3-6.3z"/></svg>'
+  assign cols = section.settings.competitors | plus: 1
+-%}
+{%- style -%}
+  #shopify-section-{{ section.id }} .anae-cmp {
+    --anae-accent: #D4537E; --anae-accent-2: #E8915B; --anae-ink: #3A2A22;
+    --anae-cream: #FBF3E9; --anae-beige: #F0DCC4;
+    background: var(--anae-cream); color: var(--anae-ink);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .anae-cmp__wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+  #shopify-section-{{ section.id }} .anae-cmp__head { text-align: center; max-width: 60ch; margin: 0 auto 40px; }
+  #shopify-section-{{ section.id }} .anae-cmp__eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: 1.2rem; font-weight: 700; color: var(--anae-accent); margin: 0 0 10px; }
+  #shopify-section-{{ section.id }} .anae-cmp__title { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: clamp(2.6rem, 4vw, 4rem); line-height: 1.1; margin: 0 0 12px; font-weight: 600; }
+  #shopify-section-{{ section.id }} .anae-cmp__intro { font-size: 1.6rem; line-height: 1.6; opacity: .82; }
+  #shopify-section-{{ section.id }} .anae-cmp__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  #shopify-section-{{ section.id }} .anae-cmp__table {
+    width: 100%; border-collapse: separate; border-spacing: 0; min-width: 520px;
+    background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(58,42,34,.1);
+  }
+  #shopify-section-{{ section.id }} .anae-cmp__table th,
+  #shopify-section-{{ section.id }} .anae-cmp__table td { padding: 18px 14px; text-align: center; border-bottom: 1px solid rgba(58,42,34,.08); }
+  #shopify-section-{{ section.id }} .anae-cmp__table thead th { font-size: 1.45rem; font-weight: 700; vertical-align: middle; }
+  #shopify-section-{{ section.id }} .anae-cmp__feature { text-align: left !important; font-size: 1.5rem; font-weight: 600; }
+  #shopify-section-{{ section.id }} .anae-cmp__uscol { background: linear-gradient(180deg, rgba(212,83,126,.1), rgba(232,145,91,.06)); }
+  #shopify-section-{{ section.id }} th.anae-cmp__uscol {
+    color: #fff; background: linear-gradient(54deg, var(--anae-accent-2) 14%, var(--anae-accent) 85%);
+    font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: 1.9rem;
+  }
+  #shopify-section-{{ section.id }} .anae-cmp__ic { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; }
+  #shopify-section-{{ section.id }} .anae-cmp__ic svg { width: 18px; height: 18px; }
+  #shopify-section-{{ section.id }} .anae-cmp__ic--yes { background: rgba(212,83,126,.14); }
+  #shopify-section-{{ section.id }} .anae-cmp__ic--yes svg { fill: var(--anae-accent); }
+  #shopify-section-{{ section.id }} .anae-cmp__ic--no { background: rgba(58,42,34,.08); }
+  #shopify-section-{{ section.id }} .anae-cmp__ic--no svg { fill: rgba(58,42,34,.4); }
+  #shopify-section-{{ section.id }} .anae-cmp__table tr:last-child td { border-bottom: none; }
+{%- endstyle -%}
+
+<section class="anae-cmp" aria-label="{{ section.settings.title | strip_html | escape }}">
+  <div class="anae-cmp__wrap">
+    <div class="anae-cmp__head">
+      {%- if section.settings.eyebrow != blank -%}<p class="anae-cmp__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.title != blank -%}<h2 class="anae-cmp__title">{{ section.settings.title }}</h2>{%- endif -%}
+      {%- if section.settings.intro != blank -%}<div class="anae-cmp__intro">{{ section.settings.intro }}</div>{%- endif -%}
+    </div>
+
+    <div class="anae-cmp__scroll">
+      <table class="anae-cmp__table">
+        <thead>
+          <tr>
+            <th scope="col" class="anae-cmp__feature">&nbsp;</th>
+            <th scope="col" class="anae-cmp__uscol">{{ section.settings.us_label }}</th>
+            <th scope="col">{{ section.settings.alt1_label }}</th>
+            {%- if cols >= 3 -%}<th scope="col">{{ section.settings.alt2_label }}</th>{%- endif -%}
+            {%- if cols >= 4 -%}<th scope="col">{{ section.settings.alt3_label }}</th>{%- endif -%}
+          </tr>
+        </thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+            <tr {{ block.shopify_attributes }}>
+              <th scope="row" class="anae-cmp__feature">{{ block.settings.feature }}</th>
+              <td class="anae-cmp__uscol">
+                <span class="anae-cmp__ic anae-cmp__ic--{% if block.settings.us %}yes{% else %}no{% endif %}">{% if block.settings.us %}{{ yes }}{% else %}{{ no }}{% endif %}</span>
+              </td>
+              <td><span class="anae-cmp__ic anae-cmp__ic--{% if block.settings.alt1 %}yes{% else %}no{% endif %}">{% if block.settings.alt1 %}{{ yes }}{% else %}{{ no }}{% endif %}</span></td>
+              {%- if cols >= 3 -%}<td><span class="anae-cmp__ic anae-cmp__ic--{% if block.settings.alt2 %}yes{% else %}no{% endif %}">{% if block.settings.alt2 %}{{ yes }}{% else %}{{ no }}{% endif %}</span></td>{%- endif -%}
+              {%- if cols >= 4 -%}<td><span class="anae-cmp__ic anae-cmp__ic--{% if block.settings.alt3 %}yes{% else %}no{% endif %}">{% if block.settings.alt3 %}{{ yes }}{% else %}{{ no }}{% endif %}</span></td>{%- endif -%}
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Anaé · Comparatif",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Comparatif" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Anaé face aux alternatives" },
+    { "type": "richtext", "id": "intro", "label": "Introduction", "default": "<p>Ce qui distingue le rituel Anaé des solutions classiques pour tenir la journée.</p>" },
+    { "type": "range", "id": "competitors", "min": 1, "max": 3, "step": 1, "label": "Nombre de colonnes concurrentes", "default": 3 },
+    { "type": "text", "id": "us_label", "label": "Colonne Anaé — label", "default": "Anaé" },
+    { "type": "text", "id": "alt1_label", "label": "Concurrent 1 — label", "default": "Café" },
+    { "type": "text", "id": "alt2_label", "label": "Concurrent 2 — label", "default": "Energy drinks" },
+    { "type": "text", "id": "alt3_label", "label": "Concurrent 3 — label", "default": "Compléments classiques" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge haut", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Marge bas", "default": 72 }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Ligne",
+      "settings": [
+        { "type": "text", "id": "feature", "label": "Critère", "default": "Énergie stable sans crash" },
+        { "type": "checkbox", "id": "us", "label": "Anaé", "default": true },
+        { "type": "checkbox", "id": "alt1", "label": "Concurrent 1", "default": false },
+        { "type": "checkbox", "id": "alt2", "label": "Concurrent 2", "default": false },
+        { "type": "checkbox", "id": "alt3", "label": "Concurrent 3", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anaé · Comparatif",
+      "blocks": [
+        { "type": "row", "settings": { "feature": "Énergie stable sans crash", "us": true, "alt1": false, "alt2": false, "alt3": true } },
+        { "type": "row", "settings": { "feature": "Actifs d'origine naturelle", "us": true, "alt1": true, "alt2": false, "alt3": true } },
+        { "type": "row", "settings": { "feature": "Sans sucres ajoutés à outrance", "us": true, "alt1": true, "alt2": false, "alt3": true } },
+        { "type": "row", "settings": { "feature": "Geste de 10 secondes, nomade", "us": true, "alt1": true, "alt2": true, "alt3": false } },
+        { "type": "row", "settings": { "feature": "Saveur gourmande qu'on attend", "us": true, "alt1": false, "alt2": true, "alt3": false } },
+        { "type": "row", "settings": { "feature": "Satisfait ou remboursé 60 jours", "us": true, "alt1": false, "alt2": false, "alt3": false } }
+      ]
+    }
+  ]
+}
+{% endschema %}
