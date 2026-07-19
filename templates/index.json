@@ -518,6 +518,17 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "custom_liquid": {
+      "type": "custom-liquid",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "custom_liquid": "",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -529,6 +540,7 @@
     "faq",
     "social_proof",
     "guarantees",
-    "final_cta"
+    "final_cta",
+    "custom_liquid"
   ]
 }
