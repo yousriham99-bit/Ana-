@@ -2,23 +2,23 @@
   #shopify-section-{{ section.id }} .anae-her {
     --anae-accent: #D4537E; --anae-accent-2: #E8915B; --anae-ink: #3A2A22;
     --anae-cream: #FBF3E9; --anae-beige: #F0DCC4;
-    background: var(--anae-ink); color: var(--anae-cream);
+    background: linear-gradient(180deg, var(--anae-cream) 0%, #ffffff 100%); color: var(--anae-ink);
     padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
   }
   #shopify-section-{{ section.id }} .anae-her__wrap {
     max-width: 1140px; margin: 0 auto; padding: 0 20px;
     display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center;
   }
-  #shopify-section-{{ section.id }} .anae-her__eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: 1.2rem; font-weight: 700; color: var(--anae-accent-2); margin: 0 0 12px; }
+  #shopify-section-{{ section.id }} .anae-her__eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: 1.2rem; font-weight: 700; color: var(--anae-accent); margin: 0 0 12px; }
   #shopify-section-{{ section.id }} .anae-her__title { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: clamp(2.6rem, 4vw, 4.2rem); line-height: 1.08; margin: 0 0 18px; font-weight: 600; }
   #shopify-section-{{ section.id }} .anae-her__body { font-size: 1.65rem; line-height: 1.65; opacity: .88; }
   #shopify-section-{{ section.id }} .anae-her__body p { margin: 0 0 14px; }
-  #shopify-section-{{ section.id }} .anae-her__body strong { color: #fff; }
+  #shopify-section-{{ section.id }} .anae-her__body strong { color: var(--anae-ink); }
   #shopify-section-{{ section.id }} .anae-her__media img { width: 100%; height: auto; border-radius: 22px; display: block; }
   #shopify-section-{{ section.id }} .anae-ph {
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
     aspect-ratio: 3 / 4; border-radius: 22px; text-align: center;
-    background: rgba(251,243,233,.06); border: 1px dashed rgba(232,145,91,.5); color: var(--anae-accent-2);
+    background: linear-gradient(135deg, var(--anae-beige), #fff); border: 1px dashed rgba(212,83,126,.4); color: var(--anae-accent);
   }
   #shopify-section-{{ section.id }} .anae-ph svg { width: 44px; height: 44px; fill: currentColor; opacity: .7; }
   #shopify-section-{{ section.id }} .anae-ph span { font-size: 1.3rem; font-weight: 700; opacity: .8; }
@@ -27,13 +27,13 @@
     max-width: 1140px; margin: 46px auto 0; padding: 0 20px;
   }
   #shopify-section-{{ section.id }} .anae-budget__inner {
-    background: rgba(251,243,233,.05); border: 1px solid rgba(251,243,233,.12); border-radius: 22px; padding: 30px;
+    background: #ffffff; border: 1px solid rgba(58,42,34,.12); border-radius: 22px; padding: 30px; box-shadow: 0 12px 32px rgba(58,42,34,.06);
   }
   #shopify-section-{{ section.id }} .anae-budget__title { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: 2.2rem; text-align: center; margin: 0 0 6px; }
   #shopify-section-{{ section.id }} .anae-budget__sub { text-align: center; font-size: 1.4rem; opacity: .7; margin: 0 0 24px; }
   #shopify-section-{{ section.id }} .anae-budget__grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: stretch; }
   #shopify-section-{{ section.id }} .anae-budget__card { border-radius: 16px; padding: 24px; text-align: center; }
-  #shopify-section-{{ section.id }} .anae-budget__card--old { background: rgba(251,243,233,.04); border: 1px solid rgba(251,243,233,.1); }
+  #shopify-section-{{ section.id }} .anae-budget__card--old { background: var(--anae-cream); border: 1px solid rgba(58,42,34,.1); }
   #shopify-section-{{ section.id }} .anae-budget__card--new { background: linear-gradient(160deg, rgba(212,83,126,.22), rgba(232,145,91,.12)); border: 1px solid rgba(212,83,126,.5); }
   #shopify-section-{{ section.id }} .anae-budget__label { font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; opacity: .8; margin: 0 0 10px; }
   #shopify-section-{{ section.id }} .anae-budget__amount { font-family: var(--font-heading-family, 'Fraunces', Georgia, serif); font-size: 3.4rem; line-height: 1; margin: 0 0 4px; }
@@ -42,7 +42,7 @@
   #shopify-section-{{ section.id }} .anae-budget__note { font-size: 1.3rem; opacity: .7; margin: 0; }
   #shopify-section-{{ section.id }} .anae-budget__vs {
     align-self: center; width: 48px; height: 48px; border-radius: 50%;
-    background: #fff; color: var(--anae-ink); font-weight: 800; font-size: 1.5rem;
+    background: linear-gradient(54deg, var(--anae-accent-2) 14%, var(--anae-accent) 85%); color: #fff; font-weight: 800; font-size: 1.5rem;
     display: flex; align-items: center; justify-content: center;
   }
   @media (max-width: 860px) {
