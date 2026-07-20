@@ -524,7 +524,7 @@
       "settings": {
         "display_id": false,
         "visibility": "always-display",
-        "custom_liquid": "",
+        "custom_liquid": "{% render 'anae-marquee' %}",
         "color_scheme": "background-1",
         "padding_top": 40,
         "padding_bottom": 52

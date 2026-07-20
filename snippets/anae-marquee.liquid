@@ -1,0 +1,63 @@
+{%- comment -%} Anaé — Marquee 2 rangées (Custom Liquid) {%- endcomment -%}
+<style>
+  .anae-mq {
+    --h: 200px;        /* hauteur images bureau */
+    --h-mob: 130px;    /* hauteur images mobile */
+    --speed: 60s;      /* vitesse de défilement */
+    overflow: hidden;
+    width: 100%;
+    background: #FBF3E9;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .anae-mq__row {
+    display: flex;
+    width: max-content;
+    flex-shrink: 0;
+    will-change: transform;
+  }
+  .anae-mq__row img {
+    height: var(--h);
+    width: var(--h);          /* carré */
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+  .anae-mq__row--top    { animation: anae-left  var(--speed) linear infinite; }
+  .anae-mq__row--bottom { animation: anae-right var(--speed) linear infinite; }
+  @keyframes anae-left  { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
+  @keyframes anae-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  .anae-mq:hover .anae-mq__row { animation-play-state: paused; }
+  @media (max-width: 749px) {
+    .anae-mq__row img { height: var(--h-mob); width: var(--h-mob); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .anae-mq__row { animation: none !important; }
+    .anae-mq { overflow-x: auto; }
+  }
+</style>
+<div class="anae-mq">
+  {%- comment -%} RANGÉE HAUT — défile vers la droite {%- endcomment -%}
+  <div class="anae-mq__row anae-mq__row--top">
+    {%- assign top_images = "https://cdn.shopify.com/s/files/1/1053/7225/4538/files/6C601E8E-5483-4F26-BCCA-229659CBCBD3.jpg?v=1782081973|https://cdn.shopify.com/s/files/1/1053/7225/4538/files/3A900F92-6A8A-4BB1-8CED-21BC82DCA7AA.jpg?v=1782081973|https://cdn.shopify.com/s/files/1/1053/7225/4538/files/46165444-A16A-4D49-9F0A-4C7FC0D176B9.jpg?v=1782081974|https://cdn.shopify.com/s/files/1/1053/7225/4538/files/56FC784C-C65D-47BB-B6A4-F2469628EC83.jpg?v=1782081974" | split: "|" -%}
+    {%- for img in top_images -%}
+      <img src="{{ img }}" alt="Anaé" loading="lazy" decoding="async">
+    {%- endfor -%}
+    {%- for img in top_images -%}
+      <img src="{{ img }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    {%- endfor -%}
+  </div>
+  {%- comment -%} RANGÉE BAS — défile vers la gauche {%- endcomment -%}
+  <div class="anae-mq__row anae-mq__row--bottom">
+    {%- assign bottom_images = "https://cdn.shopify.com/s/files/1/1053/7225/4538/files/30DAA090-8070-4D1C-B894-CF373618B517.jpg?v=1782081974|https://cdn.shopify.com/s/files/1/1053/7225/4538/files/F050312A-861F-4B87-A511-5050204BFEEE.jpg?v=1782081973|https://cdn.shopify.com/s/files/1/1053/7225/4538/files/43D67D2C-50E4-48A6-B318-FACBA04C7CB4.jpg?v=1782081973|https://cdn.shopify.com/s/files/1/1053/7225/4538/files/4E4C4930-525F-496F-9CAC-B1564CD5402A.jpg?v=1782081974" | split: "|" -%}
+    {%- for img in bottom_images -%}
+      <img src="{{ img }}" alt="Anaé" loading="lazy" decoding="async">
+    {%- endfor -%}
+    {%- for img in bottom_images -%}
+      <img src="{{ img }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    {%- endfor -%}
+  </div>
+</div>
