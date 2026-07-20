@@ -539,8 +539,8 @@
     "comparison",
     "faq",
     "social_proof",
-    "guarantees",
     "final_cta",
-    "custom_liquid"
+    "custom_liquid",
+    "guarantees"
   ]
 }
